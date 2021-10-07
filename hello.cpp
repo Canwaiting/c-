@@ -1,10 +1,14 @@
 #include <iostream>
 using namespace std;
+int func();
 int main(){
-    int i = 1;
-    cout << "Hello world" <<endl; 
-    cout << "this is my first line in linux" << endl;
-    cout << "look at the i =  ";
+
+    int i = func();
     cout << i << endl;
+    return 0;
+}
+
+int func(){
+
     return 0;
 }
