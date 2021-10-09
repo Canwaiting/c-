@@ -1,12 +1,7 @@
 #include <iostream>
 #include <string>
+#include "Sales_data.h"
 using namespace std;
-struct Sale_data{
-    std::string bookNo;
-    unsigned units_sold=0;
-    double revenue = 0.0;
-};
-
 int main(){
     Sale_data book1,book2;
     double price1,price2;
@@ -28,9 +23,7 @@ int main(){
     }
     else{
         std::cout<<"it's not the same book"<<std::endl;
-    }
-
-
+    } 
 
 
 
