@@ -15,6 +15,7 @@ int main(){
     std::cout<<"+++++++++++++++++++"<<::endl;
     int i=42,j;
     std::cout<<i*i<<std::endl;
+    std::cout<<i*i<<std::endl;
 
 
 
