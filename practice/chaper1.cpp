@@ -1,21 +1,35 @@
 #include <iostream>
+#include <string>
 using namespace std;
+struct Sale_data{
+    std::string bookNo;
+    unsigned units_sold=0;
+    double revenue = 0.0;
+};
+
 int main(){
-    std::cout<<"+++++++++++++++++++"<<::endl;
-    int a=1,b=2;
-    int* a1=&a,*b1=&b;
-    std::cout<<"a:"<<a<<std::endl;
-    std::cout<<"*a:"<<a1<<std::endl;
-    std::cout<<"b:"<<b<<std::endl;
-    std::cout<<"*b:"<<b1<<std::endl;
-    a1=b1;
-    std::cout<<"after changed"<<std::endl;
-    std::cout<<"the a1=b"<<std::endl;
-    std::cout<<*a1<<" "<<b<<std::endl;
-    std::cout<<"+++++++++++++++++++"<<::endl;
-    int i=42,j;
-    std::cout<<i*i<<std::endl;
-    std::cout<<i*i<<std::endl;
+    Sale_data book1,book2;
+    double price1,price2;
+    std::cin>>book1.bookNo>>book1.units_sold>>price1;
+    std::cin>>book2.bookNo>>book2.units_sold>>price2;
+    book1.revenue=book1.units_sold*price1;
+    book2.revenue=book2.units_sold*price2;
+    std::cout<<"++++++++++++++++++++++"<<std::endl;
+    std::cout<<"book1 no units price"<<std::endl;
+    std::cout<<book1.bookNo<<" "<<book1.units_sold<<" "<<price1<<std::endl;
+    std::cout<<"++++++++++++++++++++++"<<std::endl;
+    std::cout<<"book2 no units price"<<std::endl;
+    std::cout<<book2.bookNo<<" "<<book2.units_sold<<" "<<price2<<std::endl;
+    if(book1.bookNo==book2.bookNo){
+        unsigned total_unit = book1.units_sold +book2.units_sold;
+        double totalRevenue = book1.revenue + book2.revenue;
+        std::cout<<"book total_unit=="<<total_unit<<std::endl;
+        std::cout<<"book total revenue=="<<totalRevenue<<std::endl;
+    }
+    else{
+        std::cout<<"it's not the same book"<<std::endl;
+    }
+
 
 
 
