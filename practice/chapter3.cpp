@@ -1,36 +1,45 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "function.h"
 using std::string;
 using std::cin;
 using std::cout;
 using std::endl;
 using std::vector;
 
-void printFunc(const vector<int>& v);
-void doubleFunc(vector<int>& v);
-
 int main(){ 
-    vector<int> v(10,5);
-    printFunc(v);
-    doubleFunc(v);
-    printFunc(v);
+    int a[10];
+    int b[10];
+    vector<int> v1(10);
+    for(int i=0;i<10;i++){
+        a[i] = i;
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+
+    cout<<"=========="<<endl;
+    for(int i=0;i<10;i++){
+        b[i] = a[i];
+        cout<<b[i]<<" ";
+    }
+    cout<<endl;
+
+    cout<<"=====vector====="<<endl;
+    for(int i=0;i<10;i++){
+        v1[i] = a[i];
+    } 
+
+    vector<int> v2(v1);
+    for(auto i:v2){
+        cout<<i<<" ";
+    }
+    cout<<endl;
+
+
+
 
     return 0;
 
 }
 
-void printFunc(const vector<int>& v){ 
-    cout<<"the original"<<endl;
-    for(auto it = v.begin();it!=v.end();++it){
-        cout<<*it<<" ";
-    }
-    cout<<endl;
-}
-
-void doubleFunc(vector<int>& v){
-
-    for(auto it = v.begin();it!=v.end();++it){
-        *it *=2;
-    }
-}
