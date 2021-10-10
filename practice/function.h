@@ -26,12 +26,17 @@ void doubleFunc(vector<int>& v){
     }
 }
 
-bool compare(int* const pb1;int* const pb2;int* const pe1;int* const pe2){
+bool compare(int* const pb1,int* const pb2,int* const pe1,int* const pe2){
     if((pe1-pb1)!=(pe2-pb2)){
         return false;
     }
     else{
-        for(int* i=pb1,int* j=pb2;
+        for(int* i=pb1,*j=pb2;(i !=pe1);++i,++j){
+            if(*i!=*j){
+                return false;
+            }
+        }
     }
+    return true;
 }
 #endif

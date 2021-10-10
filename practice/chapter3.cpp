@@ -7,17 +7,27 @@ using std::cin;
 using std::cout;
 using std::endl;
 using std::vector;
+using std::begin;
+using std::end;
 
 int main(){ 
-    const int size_a = 10;
-    const int size_b = 10;
-    int arr1[size_a];
-    int arr2[size_b]
-    for(auto ptr = arr;ptr!=arr+size;++ptr){
-        *ptr = 0;
-        cout<<ptr<<" "<<*ptr;
-        cout<<endl;
-    } 
+    int arr1[]={1,2,3};
+    int arr2[]={1,2,3};
+    int arr3[]={1,3,3};
+    if(compare(begin(arr1),begin(arr2),end(arr1),end(arr2))){
+        cout<<"same"<<endl;
+    }
+    else{
+        cout<<"not same"<<endl;
+    }
+    cout<<"=========="<<endl;
+    if(compare(begin(arr1),begin(arr3),end(arr1),end(arr3))){
+        cout<<"same"<<endl;
+    }
+    else{
+        cout<<"not same"<<endl;
+    }
+
 
 
     return 0;
