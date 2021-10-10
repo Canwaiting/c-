@@ -9,34 +9,15 @@ using std::endl;
 using std::vector;
 
 int main(){ 
-    int a[10];
-    int b[10];
-    vector<int> v1(10);
-    for(int i=0;i<10;i++){
-        a[i] = i;
-        cout<<a[i]<<" ";
-    }
-    cout<<endl;
-
-    cout<<"=========="<<endl;
-    for(int i=0;i<10;i++){
-        b[i] = a[i];
-        cout<<b[i]<<" ";
-    }
-    cout<<endl;
-
-    cout<<"=====vector====="<<endl;
-    for(int i=0;i<10;i++){
-        v1[i] = a[i];
+    const int size_a = 10;
+    const int size_b = 10;
+    int arr1[size_a];
+    int arr2[size_b]
+    for(auto ptr = arr;ptr!=arr+size;++ptr){
+        *ptr = 0;
+        cout<<ptr<<" "<<*ptr;
+        cout<<endl;
     } 
-
-    vector<int> v2(v1);
-    for(auto i:v2){
-        cout<<i<<" ";
-    }
-    cout<<endl;
-
-
 
 
     return 0;
