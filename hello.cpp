@@ -5,6 +5,7 @@ int main(){
 
     int i = func();
     cout << i << endl;
+    cout << i << endl;
     return 0;
 }
 
