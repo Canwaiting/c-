@@ -30,9 +30,16 @@ void test1(){
         string result = i<5 ? "less than 5" : i<7 ? "less than 7" : "bigger than 7";
         cout<<result<<endl;
     } 
-
 }
+
+
+void test2(){
+    int *p = new int;
+    cout<<"p size:"<<sizeof(p)<<endl;
+    cout<<"int size:"<<sizeof(*p)<<endl;
+}
+
 int main(){
-    test1();
+    test2();
     return 0;
 }
