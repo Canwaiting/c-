@@ -1,27 +1,38 @@
 #include <iostream>
 #include <string>
 #include <math.h>
+#include <vector>
+
 using namespace std;
 
 
 void test(){
-    bool b;
-    int *ptr = new int;
-    cout<<"ptr="<<ptr<<endl;
-    int j=1,k=2;
-    int i=0;
-    cout<<i<<endl;
-    cout<<(j<k)<<endl;
-    if(i!=j<k){
-        cout<<"true"<<endl;
+    vector<int> vec={0,1,2,3,4,5,6,7,8,9}; 
+    cout<<"original"<<endl;
+    for(auto j :vec){
+        cout<<j<<" ";
+    } 
+    cout<<endl;
+    cout<<"changed"<<endl;
+    for(auto &i :vec){
+        if(i%2!=0){
+            i *=2;
+        }
+        cout<<i<<" "; 
     }
-    else{
-        cout<<"true"<<endl;
-    }
-
+    cout<<endl;
 }
 
+void test1(){
+    vector<int> vec={0,1,2,3,4,5,6,7,8,9}; 
+    for(int i:vec){
+        cout<<i<<" "; 
+        string result = i<5 ? "less than 5" : i<7 ? "less than 7" : "bigger than 7";
+        cout<<result<<endl;
+    } 
+
+}
 int main(){
-    test();
+    test1();
     return 0;
 }
