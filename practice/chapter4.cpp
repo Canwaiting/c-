@@ -69,6 +69,7 @@ void test3(){
     }
 
     cout<<"=============="<<endl;
+    cout<<"=============="<<endl;
     cout<<"the sum is:"<<sum<<endl;
     cout<<"the tab is:"<<tab<<endl;
     cout<<"the space is:"<<space<<endl;
