@@ -5,6 +5,7 @@ int main(){
 
     int i = func();
     cout << i << endl;
+    cout<<"hello world"<<endl;
     cout << i << endl;
     return 0;
 }
