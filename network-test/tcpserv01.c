@@ -11,35 +11,52 @@
 #include <poll.h>
 #include <fcntl.h>
 
-
-int
-main(int argc, char **argv)
+int main( int argc, char* argv[] ) 
 {
-	int					listenfd, connfd;
-	pid_t				childpid;
-	socklen_t			clilen;
-	struct sockaddr_in	cliaddr, servaddr;
+    if( argc <= 2 )
+    {
+        printf( "usage: %s ip_address port_number\n", basename( argv[0] ) );
+        return 1;
+    }
+    const char* ip = argv[1];
+    int port = atoi( argv[2] );
 
-	listenfd = socket(AF_INET, SOCK_STREAM, 0);
+    struct sockaddr_in address;
+    bzero( &address, sizeof( address ) );
+    address.sin_family = AF_INET;
+    inet_pton( AF_INET, ip, &address.sin_addr );
+    address.sin_port = htons( port );
 
-	bzero(&servaddr, sizeof(servaddr));
-	servaddr.sin_family      = AF_INET;
-	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-	servaddr.sin_port        = htons(port);
+    int sock = socket( PF_INET, SOCK_STREAM, 0 );
+    assert( sock >= 0 );
 
-	bind(listenfd,( struct sockaddr* )&servaddr, sizeof(servaddr));
+    int ret = bind( sock, ( struct sockaddr* )&address, sizeof( address ) );
+    assert( ret != -1 );
 
-	listen(listenfd,5);
+    ret = listen( sock, 5 );
+    assert( ret != -1 );
 
-	for ( ; ; ) {
-		clilen = sizeof(cliaddr);
-		connfd = accept(listenfd,( struct sockaddr* ) &cliaddr, &clilen);
+    struct sockaddr_in client;
+    socklen_t client_addrlength = sizeof( client );
+    int connfd = accept( sock, ( struct sockaddr* )&client, &client_addrlength );
+    if ( connfd < 0 )
+    {
+        printf( "errno is: %d\n", errno );
+    }
+    else
+    {
+        int pipefd[2];
+        assert( ret != -1 );
+        ret = pipe( pipefd );
+        ret = splice( connfd, NULL, pipefd[1], NULL, 32768, SPLICE_F_MORE | SPLICE_F_MOVE ); 
+        assert( ret != -1 );
+        ret = splice( pipefd[0], NULL, connfd, NULL, 32768, SPLICE_F_MORE | SPLICE_F_MOVE );
+        assert( ret != -1 );
+        close( connfd );
+    }
 
-		if ( (childpid = fork()) == 0) {	/* child process */
-			close(listenfd);	/* close listening socket */
-			str_echo(connfd);	/* process the request */
-			exit(0);
-		}
-		close(connfd);			/* parent closes connected socket */
-	}
+    close( sock );
+    return 0;
 }
+
+
