@@ -1,0 +1,9 @@
+fd_set readfds;
+fd_set writefds;
+struct timeval timeout;
+
+FD_ZERO( &readfds );
+FD_SET( sockfd, &writefds );
+
+timeout.tv_sec = time;
+timeout.tv_usec = 0;
