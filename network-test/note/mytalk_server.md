@@ -17,10 +17,6 @@ how poll work
     if( ( fds[i].fd == listenfd ) && ( fds[i].revents & POLLIN ) ) 
 
 ---
-        client      server socket socket                               
-                     bind
-            listen
-connect-->user++     accept-->fd++ user++
 
 | client  | op_client     | server | op_server              |
 |---------|---------------|--------|------------------------|
@@ -35,5 +31,18 @@ connect-->user++     accept-->fd++ user++
 | connect | users[user++] | accpet | users[user++] fds[i++] |
 
 
+---
 client and server use whose socket in the datatransfer
-| connect | users[user++] | accpet | users[user++] fds[i++] |
+| connect       | users[user++] | accpet        | users[user++] fds[i++] |
+|---------------|---------------|---------------|------------------------|
+| client_socket |               | server_socket |                        |
+
+
+---
+how a socket station change in client and server
+    the socket address never change,but the core have changed 
+        int listenfd = socket( PF_INET, SOCK_STREAM, 0 );
+        ret = bind( listenfd, ( struct sockaddr* )&address, sizeof( address ) );
+        ret = listen( listenfd, 5 );
+
+
