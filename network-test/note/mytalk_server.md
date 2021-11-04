@@ -33,16 +33,23 @@ how poll work
 
 ---
 client and server use whose socket in the datatransfer
-| connect       | users[user++] | accpet        | users[user++] fds[i++] |
-|---------------|---------------|---------------|------------------------|
-| client_socket |               | server_socket |                        |
+| client        | op         | server        |
+|---------------|------------|---------------|
+| client_socket | <--pipe--> | server_socket |
 
 
 ---
 how a socket station change in client and server
     the socket address never change,but the core have changed 
+    bind listen function hvae return value and actually do work
         int listenfd = socket( PF_INET, SOCK_STREAM, 0 );
         ret = bind( listenfd, ( struct sockaddr* )&address, sizeof( address ) );
         ret = listen( listenfd, 5 );
 
+---
+todo the number listen bind return maybe meaning something
 
+
+---
+todo what is pipe in here
+client_socket   <--pipe-->   server socket  

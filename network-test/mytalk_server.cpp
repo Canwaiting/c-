@@ -95,7 +95,7 @@ int main( int argc, char* argv[] )
              * POLLIN
              * ( fds[i].revents & POLLIN ) return bollean
              * deal with new user
-             * todo why we need to do this
+             *
              */
             if( ( fds[i].fd == listenfd ) && ( fds[i].revents & POLLIN ) ) /*what is can read*/
             {
