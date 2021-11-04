@@ -12,10 +12,11 @@
 #include <stdlib.h>
 #include <poll.h>
 
-#define USER_LIMIT 5
-#define BUFFER_SIZE 64
-#define FD_LIMIT 65535
+#define USER_LIMIT 5  /*max num of users*/
+#define BUFFER_SIZE 64  /*max num you can write*/
+#define FD_LIMIT 65535  /*todo max num of fd*/
 
+//todo
 struct client_data
 {
     sockaddr_in address;
@@ -23,9 +24,7 @@ struct client_data
     char buf[ BUFFER_SIZE ];
 };
 
-/* 
-    set this for open fd not be blocked
-*/
+//todo
 int setnonblocking( int fd )
 {
     int old_option = fcntl( fd, F_GETFL );  //catch old way
@@ -34,17 +33,19 @@ int setnonblocking( int fd )
     return old_option;  //todo if return old,why we do that?
 }
 
+
 int main( int argc, char* argv[] )
 {
+    //check arg
     if( argc <= 2 )
     {
         printf( "usage: %s ip_address port_number\n", basename( argv[0] ) );
         return 1;
     }
 
+    //initial value
     const char* ip = argv[1];
     int port = atoi( argv[2] );
-
     int ret = 0;
     struct sockaddr_in address;
     bzero( &address, sizeof( address ) );
@@ -52,45 +53,49 @@ int main( int argc, char* argv[] )
     inet_pton( AF_INET, ip, &address.sin_addr );
     address.sin_port = htons( port );
 
+    //setup socket
     int listenfd = socket( PF_INET, SOCK_STREAM, 0 );
     assert( listenfd >= 0 );
-
+    //bind
     ret = bind( listenfd, ( struct sockaddr* )&address, sizeof( address ) );
     assert( ret != -1 );
-
+    //listen
     ret = listen( listenfd, 5 );
     assert( ret != -1 );
 
-    //todo  create a user array
+    //create a limited userloop
     client_data* users = new client_data[FD_LIMIT];
-    //todo  limit the maximum number
     pollfd fds[USER_LIMIT+1];
-    //todo---
     int user_counter = 0;
-    for( int i = 1; i <= USER_LIMIT; ++i )
+    for( int i = 1; i <= USER_LIMIT; ++i )  /*initial*/
     {
         fds[i].fd = -1;
         fds[i].events = 0;
     }
-    //todo---
 
-    //todo what is fds[0],0
-    fds[0].fd = listenfd;   //the socket
-    fds[0].events = POLLIN | POLLERR;   //date can read or error
-    fds[0].revents = 0; //nothing happen yet
+    //todo
+    fds[0].fd = listenfd;
+    fds[0].events = POLLIN | POLLERR;
+    fds[0].revents = 0;
 
     while( 1 )
     {
-        ret = poll( fds, user_counter+1, -1 );  //todo only 1 user?
+        //todo  user_counter+1 why need to +1
+        ret = poll( fds, user_counter+1, -1 );
         if ( ret < 0 )
         { printf( "poll failure\n" );
             break;
         }
-    
-        //poll sockets
+
+        /*poll all fd in server's side*/
         for( int i = 0; i < user_counter+1; ++i )
         {
-            //deal all types of event
+
+            /* todo successfully connect and station
+             * POLLIN
+             * ( fds[i].revents & POLLIN ) return bollean
+             * can read
+             */
             if( ( fds[i].fd == listenfd ) && ( fds[i].revents & POLLIN ) )
             {
                 struct sockaddr_in client_address;
@@ -125,7 +130,11 @@ int main( int argc, char* argv[] )
                 fds[user_counter].revents = 0;  //nothing happen yet
                 printf( "comes a new user, now have %d users\n", user_counter );
             }
-            //revents have value means have something happen
+
+            /* successfully connect and station
+             * POLLERR
+             * error
+             */
             else if( fds[i].revents & POLLERR )
             {
                 printf( "get an error from %d\n", fds[i].fd );  //info for specific socket
@@ -141,7 +150,11 @@ int main( int argc, char* argv[] )
                 continue;
             }
 
-            //the socket half close
+            /* successfully connect and station
+             * POLLRDHUP
+             * hang up
+             * such as write peer close then will return this to read peer
+             */
             else if( fds[i].revents & POLLRDHUP )
             {
                 users[fds[i].fd] = users[fds[user_counter].fd]; //todo why we need to do this 
@@ -152,8 +165,10 @@ int main( int argc, char* argv[] )
                 printf( "a client left\n" );
             }
 
-            //socket have data to read
-            //we need to figure out the relate
+            /* successfully connect and station
+             * POLLIN
+             * can read
+             */
             else if( fds[i].revents & POLLIN )
             {
                 int connfd = fds[i].fd;
@@ -190,6 +205,11 @@ int main( int argc, char* argv[] )
                     }
                 }
             }
+
+            /* successfully connect and station
+             * POLLOUT
+             * can write
+             */
             else if( fds[i].revents & POLLOUT )
             {
                 int connfd = fds[i].fd;
@@ -205,7 +225,9 @@ int main( int argc, char* argv[] )
         }
     }
 
+    /*free and close*/
     delete [] users;
     close( listenfd );
     return 0;
 }
+
