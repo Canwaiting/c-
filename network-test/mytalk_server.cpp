@@ -91,62 +91,63 @@ int main( int argc, char* argv[] )
         for( int i = 0; i < user_counter+1; ++i )
         {
 
-            /* todo successfully connect and station
+            /* successfully connect and station
              * POLLIN
              * ( fds[i].revents & POLLIN ) return bollean
-             * can read
+             * deal with new user
+             * todo why we need to do this
              */
-            if( ( fds[i].fd == listenfd ) && ( fds[i].revents & POLLIN ) )
+            if( ( fds[i].fd == listenfd ) && ( fds[i].revents & POLLIN ) ) /*what is can read*/
             {
+                /*build a new client and connect*/
                 struct sockaddr_in client_address;
                 socklen_t client_addrlength = sizeof( client_address );
-                /*                 
-                    todo try to make a connect with accept 
-                    the connect is in client
-                */
                 int connfd = accept( listenfd, ( struct sockaddr* )&client_address, &client_addrlength );
-
-                if ( connfd < 0 ) 
-                {
+                if ( connfd < 0 ) {
                     printf( "errno is: %d\n", errno );
                     continue;
                 }
 
+                /*too many users-->print error info and close this connect*/
                 if( user_counter >= USER_LIMIT )
                 {
+                    /*print error info and close this connect*/
                     const char* info = "too many users\n";
                     printf( "%s", info );
-                    send( connfd, info, strlen( info ), 0 );    //send error info to client
-                    close( connfd );    //close this connfd
+                    send( connfd, info, strlen( info ), 0 );
+                    close( connfd );
                     continue;
                 }
 
-                //create a new user
-                user_counter++; //why do that
+                /*create new user and let it into the queue*/
+                user_counter++;
                 users[connfd].address = client_address;
-                setnonblocking( connfd );   //todo maybe let connfd unblock
-                fds[user_counter].fd = connfd;  //setup connect
-                fds[user_counter].events = POLLIN | POLLRDHUP | POLLERR;    //listen what you can do
-                fds[user_counter].revents = 0;  //nothing happen yet
+                setnonblocking( connfd );
+                fds[user_counter].fd = connfd;
+                fds[user_counter].events = POLLIN | POLLRDHUP | POLLERR;
+                fds[user_counter].revents = 0;
                 printf( "comes a new user, now have %d users\n", user_counter );
             }
 
-            /* successfully connect and station
+            /*
+             * successfully connect and station
              * POLLERR
              * error
              */
             else if( fds[i].revents & POLLERR )
             {
-                printf( "get an error from %d\n", fds[i].fd );  //info for specific socket
+                printf( "get an error from %d\n", fds[i].fd );
 
-                char errors[ 100 ]; 
+                /*initial erro info*/
+                char errors[ 100 ];
                 memset( errors, '\0', 100 );
                 socklen_t length = sizeof( errors );
-                //why we need to get the opt
-                if( getsockopt( fds[i].fd, SOL_SOCKET, SO_ERROR, &errors, &length ) < 0 )
-                {
+
+                /*todo erro info dont care*/
+                if( getsockopt( fds[i].fd, SOL_SOCKET, SO_ERROR, &errors, &length ) < 0 ) {
                     printf( "get socket option failed\n" );
                 }
+
                 continue;
             }
 
@@ -157,11 +158,12 @@ int main( int argc, char* argv[] )
              */
             else if( fds[i].revents & POLLRDHUP )
             {
-                users[fds[i].fd] = users[fds[user_counter].fd]; //todo why we need to do this 
-                close( fds[i].fd ); //close the server socket
+                /*if client close,server close too,and user--*/
+                users[fds[i].fd] = users[fds[user_counter].fd];  /*dont know fd fds*/
+                close( fds[i].fd );
                 fds[i] = fds[user_counter];
                 i--;
-                user_counter--; //close this socket
+                user_counter--;
                 printf( "a client left\n" );
             }
 
@@ -175,6 +177,7 @@ int main( int argc, char* argv[] )
                 memset( users[connfd].buf, '\0', BUFFER_SIZE );
                 ret = recv( connfd, users[connfd].buf, BUFFER_SIZE-1, 0 );
                 printf( "get %d bytes of client data %s from %d\n", ret, users[connfd].buf, connfd );
+
                 if( ret < 0 )
                 {
                     if( errno != EAGAIN )
@@ -186,10 +189,12 @@ int main( int argc, char* argv[] )
                         user_counter--;
                     }
                 }
+
                 else if( ret == 0 )
                 {
                     printf( "code should not come to here\n" );
                 }
+
                 else
                 {
                     for( int j = 1; j <= user_counter; ++j )
