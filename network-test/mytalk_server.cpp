@@ -73,7 +73,7 @@ int main( int argc, char* argv[] )
         fds[i].events = 0;
     }
 
-    //todo
+    //todo why we need to initial
     fds[0].fd = listenfd;
     fds[0].events = POLLIN | POLLERR;
     fds[0].revents = 0;
