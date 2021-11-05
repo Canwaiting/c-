@@ -33,9 +33,9 @@ how poll work
 
 ---
 client and server use whose socket in the datatransfer
-| client        | op         | server        |
-|---------------|------------|---------------|
-| client_socket | <--pipe--> | server_socket |
+| client        | op              | server        |
+|---------------|-----------------|---------------|
+| client_socket | <--something--> | server_socket |
 
 
 ---
@@ -47,9 +47,48 @@ how a socket station change in client and server
         ret = listen( listenfd, 5 );
 
 ---
-todo the number listen bind return maybe meaning something
+how data transfer
+
+| client_socket                     | opt     | server_socket                 |
+|-----------------------------------|---------|-------------------------------|
+| setup socket                      |         | setup socket                  |
+|                                   |         | bind                          |
+|                                   |         | listen                        |
+| connection                        |         | accept                        |
+| data--send-->socket(connectioned) | somehow | data--recv-->socket(accepted) |
+|                                   |         |                               |
+|                                   |         |                               |
+|                                   |         |                               |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ---
-todo what is pipe in here
-client_socket   <--pipe-->   server socket  
+todo the number listen bind return maybe meaning something
+
+
+--- 
++ todo what is something in here
+    client_socket   <--something-->   server socket  
+
++ todo how socket file content change during setup to close
