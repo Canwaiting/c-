@@ -1,0 +1,7 @@
+/home/canwaiting/cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/canwaiting/cpp/cmake-build-debug/CMakeFiles/multi_port.dir
+/home/canwaiting/cpp/cmake-build-debug/CMakeFiles/mytalk_server.dir
+/home/canwaiting/cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/canwaiting/cpp/cmake-build-debug/CMakeFiles/mytalk_client.dir
+/home/canwaiting/cpp/cmake-build-debug/CMakeFiles/unblockconnect.dir
+/home/canwaiting/cpp/cmake-build-debug/CMakeFiles/echo_splice.dir

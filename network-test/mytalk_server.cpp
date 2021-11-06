@@ -34,8 +34,7 @@ int setnonblocking( int fd )
 }
 
 
-int main( int argc, char* argv[] )
-{
+int main( int argc, char* argv[] ) {
     //check arg
     if( argc <= 2 )
     {

@@ -1,0 +1,3 @@
+ToolSet: 1.0 (local)Options: 
+
+Options:-DCMAKE_MAKE_PROGRAM=/home/canwaiting/下载/CLion-213.5449.26/clion-213.5449.26/bin/ninja/linux/ninja
