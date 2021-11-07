@@ -8,10 +8,10 @@
 		},
 		"paths" : 
 		{
-			"cmake" : "/home/canwaiting/下载/CLion-213.5449.26/clion-213.5449.26/bin/cmake/linux/bin/cmake",
-			"cpack" : "/home/canwaiting/下载/CLion-213.5449.26/clion-213.5449.26/bin/cmake/linux/bin/cpack",
-			"ctest" : "/home/canwaiting/下载/CLion-213.5449.26/clion-213.5449.26/bin/cmake/linux/bin/ctest",
-			"root" : "/home/canwaiting/下载/CLion-213.5449.26/clion-213.5449.26/bin/cmake/linux/share/cmake-3.21"
+			"cmake" : "/home/canwaiting/tool/clion/bin/cmake/linux/bin/cmake",
+			"cpack" : "/home/canwaiting/tool/clion/bin/cmake/linux/bin/cpack",
+			"ctest" : "/home/canwaiting/tool/clion/bin/cmake/linux/bin/ctest",
+			"root" : "/home/canwaiting/tool/clion/bin/cmake/linux/share/cmake-3.21"
 		},
 		"version" : 
 		{
@@ -26,7 +26,7 @@
 	"objects" : 
 	[
 		{
-			"jsonFile" : "codemodel-v2-b2ec0ecf2a9ef2c948bc.json",
+			"jsonFile" : "codemodel-v2-f741031c0e8036422048.json",
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -35,7 +35,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cache-v2-3b5b62b7b1f39d36a17f.json",
+			"jsonFile" : "cache-v2-ffd4743a496e20120771.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -44,7 +44,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cmakeFiles-v1-5fbcd80808e89f5e59b9.json",
+			"jsonFile" : "cmakeFiles-v1-7dae8a488c5e4080f6fa.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -66,7 +66,7 @@
 	{
 		"cache-v2" : 
 		{
-			"jsonFile" : "cache-v2-3b5b62b7b1f39d36a17f.json",
+			"jsonFile" : "cache-v2-ffd4743a496e20120771.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -76,7 +76,7 @@
 		},
 		"cmakeFiles-v1" : 
 		{
-			"jsonFile" : "cmakeFiles-v1-5fbcd80808e89f5e59b9.json",
+			"jsonFile" : "cmakeFiles-v1-7dae8a488c5e4080f6fa.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -86,7 +86,7 @@
 		},
 		"codemodel-v2" : 
 		{
-			"jsonFile" : "codemodel-v2-b2ec0ecf2a9ef2c948bc.json",
+			"jsonFile" : "codemodel-v2-f741031c0e8036422048.json",
 			"kind" : "codemodel",
 			"version" : 
 			{

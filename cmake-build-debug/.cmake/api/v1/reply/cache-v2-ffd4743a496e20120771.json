@@ -103,7 +103,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/canwaiting/下载/CLion-213.5449.26/clion-213.5449.26/bin/cmake/linux/bin/cmake"
+			"value" : "/home/canwaiting/tool/clion/bin/cmake/linux/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/canwaiting/下载/CLion-213.5449.26/clion-213.5449.26/bin/cmake/linux/bin/cpack"
+			"value" : "/home/canwaiting/tool/clion/bin/cmake/linux/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/canwaiting/下载/CLion-213.5449.26/clion-213.5449.26/bin/cmake/linux/bin/ctest"
+			"value" : "/home/canwaiting/tool/clion/bin/cmake/linux/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -631,7 +631,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "/home/canwaiting/下载/CLion-213.5449.26/clion-213.5449.26/bin/ninja/linux/ninja"
+			"value" : "/home/canwaiting/tool/clion/bin/ninja/linux/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -863,7 +863,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/canwaiting/下载/CLion-213.5449.26/clion-213.5449.26/bin/cmake/linux/share/cmake-3.21"
+			"value" : "/home/canwaiting/tool/clion/bin/cmake/linux/share/cmake-3.21"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",

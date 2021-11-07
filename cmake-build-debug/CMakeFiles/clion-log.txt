@@ -1,4 +1,4 @@
-/home/canwaiting/下载/CLion-213.5449.26/clion-213.5449.26/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/canwaiting/下载/CLion-213.5449.26/clion-213.5449.26/bin/ninja/linux/ninja -G Ninja /home/canwaiting/cpp
+/home/canwaiting/tool/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/canwaiting/tool/clion/bin/ninja/linux/ninja -G Ninja /home/canwaiting/cpp
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/canwaiting/cpp/cmake-build-debug
