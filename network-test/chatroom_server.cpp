@@ -11,6 +11,8 @@
 #include <poll.h>
 #include <iostream>
 
+#define BUF_SIZE 1024
+
 using namespace std;
 
 
@@ -43,22 +45,21 @@ int main(int argc,char* argv[]){
     assert(ret!=-1);
 
 
-    while(1){
-        /*intialize client*/ 
-        struct sockaddr_in client; 
-        socklen_t client_addrlength = sizeof(client);
-        /*connect*/
-        int connfd = accept(listenfd,(struct sockaddr*)&client,&client_addrlength); 
-        if(connfd<=0){
-            printf("errno is:%d\n",errno);
-        }
-        else{
-        } 
-    }
-
+    /*intialize client*/ 
+    struct sockaddr_in client; 
+    socklen_t client_addrlength = sizeof(client);
+    /*connect*/
+    int connfd = accept(listenfd,(struct sockaddr*)&client,&client_addrlength); 
+    assert(connfd!=-1);
+    /*receive*/
+    char buffer[BUF_SIZE];
+    memset(buffer,'\0',BUF_SIZE);
+    ret = recv(connfd,buffer,BUF_SIZE-1,0);
+    printf("ret:%d",ret);
+    printf("we get %d byte char:%s\n",ret,buffer); 
+    close(connfd);
     /*close*/ 
     close(listenfd); 
-
     return 0;
 }
 

@@ -86,6 +86,7 @@ how data transfer
 
 
 ## originial version
+    accept-->splice/send-->poll
 
 
 
@@ -116,4 +117,5 @@ todo the number listen bind return maybe meaning something
 ---
 + todo we actually dont know chatroom datastructure inside 
     you can watch unp
++ todo why const* char dont work,but + const front can work
 
