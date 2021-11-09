@@ -1,16 +1,14 @@
 # ninja log v5
 246	321	1636167106724264945	mytalk_server	16cbf3653e18c7c4
 0	102	1636167742530433311	CMakeFiles/echo_splice.dir/network-test/echo_splice.cpp.o	3b565a08d6d66e7d
-0	24	1636216962126158858	build.ninja	af8bc8df5314f92d
+208	255	1636260912367745859	unievent	1e0b600546dfdeff
+0	24	1636339336566753090	build.ninja	af8bc8df5314f92d
 1	208	1636192187452387583	CMakeFiles/multi_port.dir/network-test/multi_port.cpp.o	70951070eff1d9c8
 0	245	1636167106648264883	CMakeFiles/mytalk_client.dir/network-test/mytalk_client.cpp.o	a8761343046f5422
+0	307	1636263215128804323	CMakeFiles/connect_timeout.dir/network-test/connect_timeout.cpp.o	b2795e7c8cb26f20
 2	246	1636167106648264883	CMakeFiles/mytalk_server.dir/network-test/mytalk_server.cpp.o	6f382c1c21b2b910
 245	290	1636167106696264922	mytalk_client	2f904cd1d78f0fb
+0	208	1636260912323745240	CMakeFiles/unievent.dir/network-test/unievent.cpp.o	d774fe14c6442c17
+307	349	1636263215168804656	connect_timeout	fe11e6864edbdd73
 208	273	1636192187520387631	multi_port	e37492b843724a9d
 102	145	1636167742570434061	echo_splice	68f6af196333380
-0	105	1636217211148923040	CMakeFiles/unievent.dir/network-test/unievent.cpp.o	d774fe14c6442c17
-105	149	1636217211196924130	unievent	1e0b600546dfdeff
-0	66	1636217497710405865	CMakeFiles/unievent.dir/network-test/unievent.cpp.o	d774fe14c6442c17
-66	105	1636217497750406510	unievent	1e0b600546dfdeff
-0	208	1636260912323745240	CMakeFiles/unievent.dir/network-test/unievent.cpp.o	d774fe14c6442c17
-208	255	1636260912367745859	unievent	1e0b600546dfdeff

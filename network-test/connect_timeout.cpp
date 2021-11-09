@@ -12,19 +12,22 @@
 
 int timeout_connect( const char* ip, int port, int time )
 {
-    int ret = 0;
+    int ret = 0; /*todo*/
+    /*initialize the client*/
     struct sockaddr_in address;
     bzero( &address, sizeof( address ) );
     address.sin_family = AF_INET;
     inet_pton( AF_INET, ip, &address.sin_addr );
     address.sin_port = htons( port );
 
+    /*create socket*/
     int sockfd = socket( PF_INET, SOCK_STREAM, 0 );
     assert( sockfd >= 0 );
 
+    /*setting timeout*/
     struct timeval timeout;
-    timeout.tv_sec = time;
-    timeout.tv_usec = 0;
+    timeout.tv_sec = time; /*second*/
+    timeout.tv_usec = 0; /*microsecond*/
     socklen_t len = sizeof( timeout );
     ret = setsockopt( sockfd, SOL_SOCKET, SO_SNDTIMEO, &timeout, len );
     assert( ret != -1 );

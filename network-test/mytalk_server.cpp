@@ -45,7 +45,7 @@ int main( int argc, char* argv[] ) {
     //initial value
     const char* ip = argv[1];
     int port = atoi( argv[2] );
-    int ret = 0;
+    int ret = 0; //none
     struct sockaddr_in address;
     bzero( &address, sizeof( address ) );
     address.sin_family = AF_INET;
@@ -54,13 +54,13 @@ int main( int argc, char* argv[] ) {
 
     //setup socket
     int listenfd = socket( PF_INET, SOCK_STREAM, 0 );
-    assert( listenfd >= 0 );
+    assert( listenfd >= 0 ); /*none*/
     //bind
     ret = bind( listenfd, ( struct sockaddr* )&address, sizeof( address ) );
-    assert( ret != -1 );
+    assert( ret != -1 ); //none
     //listen
     ret = listen( listenfd, 5 );
-    assert( ret != -1 );
+    assert( ret != -1 ); //none
 
     //create a limited userloop
     client_data* users = new client_data[FD_LIMIT];

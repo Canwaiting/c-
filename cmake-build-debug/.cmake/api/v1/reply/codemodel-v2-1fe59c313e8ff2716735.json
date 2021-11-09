@@ -20,7 +20,9 @@
 						2,
 						3,
 						4,
-						5
+						5,
+						6,
+						7
 					]
 				}
 			],
@@ -40,12 +42,21 @@
 						2,
 						3,
 						4,
-						5
+						5,
+						6,
+						7
 					]
 				}
 			],
 			"targets" : 
 			[
+				{
+					"directoryIndex" : 0,
+					"id" : "connect_timeout::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-connect_timeout-Debug-b73b2f7cd2b398fa397a.json",
+					"name" : "connect_timeout",
+					"projectIndex" : 0
+				},
 				{
 					"directoryIndex" : 0,
 					"id" : "echo_splice::@6890427a1f51a3e7e1df",
@@ -72,6 +83,13 @@
 					"id" : "mytalk_server::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-mytalk_server-Debug-f3feb03b6052f61997c4.json",
 					"name" : "mytalk_server",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nonactive_conn::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nonactive_conn-Debug-121af6061db453d14fdc.json",
+					"name" : "nonactive_conn",
 					"projectIndex" : 0
 				},
 				{
