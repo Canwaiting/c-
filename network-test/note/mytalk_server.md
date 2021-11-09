@@ -89,6 +89,8 @@ how data transfer
     accept-->splice/send-->poll
 
 
+nothing happen when disconnect
+i want to chase the variable 
 
 
 

@@ -65,7 +65,7 @@ int main( int argc, char* argv[] ) {
     //create a limited userloop
     client_data* users = new client_data[FD_LIMIT];
     pollfd fds[USER_LIMIT+1];
-    int user_counter = 0;
+    int user_counter = 0;//none
     for( int i = 1; i <= USER_LIMIT; ++i )  /*initial*/
     {
         fds[i].fd = -1;

@@ -13,6 +13,10 @@
 
 #define BUFFER_SIZE 64
 
+/* 0 is listen to itself
+ * 1 is listen to other
+ */
+
 int main( int argc, char* argv[] ) //argc=count of arguments argv= arguments vector
 { 
     //print log
@@ -84,11 +88,17 @@ int main( int argc, char* argv[] ) //argc=count of arguments argv= arguments vec
         }
 
 
+        /*local event*/
         if( fds[0].revents & POLLIN )
         {
-            //something to read
+            /*
+             *  write in the pipe
+             */
             ret = splice( 0, NULL, pipefd[1], NULL, 32768, SPLICE_F_MORE | SPLICE_F_MOVE );
-            ret = splice( pipefd[0], NULL, sockfd, NULL, 32768, SPLICE_F_MORE | SPLICE_F_MOVE );
+            /*
+             * read in the pipe
+             */
+            ret = splice( pipefd[0], NULL, sockfd, NULL, 32768, SPLICE_F_MORE | SPLICE_F_MOVE ); /*output from pipefd[0] to end*/
         }
     }
     

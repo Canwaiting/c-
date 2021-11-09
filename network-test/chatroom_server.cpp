@@ -7,14 +7,20 @@
 #include <errno.h>
 #include <string.h>
 #include <fcntl.h>
-#include <stdlib.h>
-#include <poll.h>
+#include <stdlib.h> #include <poll.h>
 #include <iostream>
 
-#define BUF_SIZE 1024
+#define BUFFER_SIZE 64 
+#define FD_LIMIT 65535
+#define USER_LIMIT 5
 
 using namespace std;
 
+struct client_data{
+    sockaddr_in address;
+    char* write_buf;
+    char buf[BUFFER_SIZE];
+}
 
 int main(int argc,char* argv[]){
     /*check arg*/
@@ -48,6 +54,22 @@ int main(int argc,char* argv[]){
     /*intialize client*/ 
     struct sockaddr_in client; 
     socklen_t client_addrlength = sizeof(client);
+
+    /*set client array*/
+    client_data* users = new client_data[FD_LIMIT];  /*todo assume have many event*/
+    pollfd fds[USER_LIMIT+1]; //todo why we need one more
+    /*initialize the fds[1~end]*/
+    for(int i = 1;i<=USER_LIMIT;++i){
+        fds[i].fd = -1;
+        fds[i].events = 0; 
+    }
+    
+    //todo 
+    fds[0].fd = listenfd;
+    fds[0].events = POLLIN | POLLERR;
+    fds[0].revents = 0;
+
+
     /*connect*/
     int connfd = accept(listenfd,(struct sockaddr*)&client,&client_addrlength); 
     assert(connfd!=-1);
