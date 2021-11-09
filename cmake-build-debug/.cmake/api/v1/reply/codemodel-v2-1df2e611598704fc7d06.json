@@ -22,7 +22,9 @@
 						4,
 						5,
 						6,
-						7
+						7,
+						8,
+						9
 					]
 				}
 			],
@@ -44,12 +46,28 @@
 						4,
 						5,
 						6,
-						7
+						7,
+						8,
+						9
 					]
 				}
 			],
 			"targets" : 
 			[
+				{
+					"directoryIndex" : 0,
+					"id" : "chatroom_client::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chatroom_client-Debug-5f8ea8dcc1cde885f12b.json",
+					"name" : "chatroom_client",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chatroom_server::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chatroom_server-Debug-acb1d2bd4b93b5f6fc3a.json",
+					"name" : "chatroom_server",
+					"projectIndex" : 0
+				},
 				{
 					"directoryIndex" : 0,
 					"id" : "connect_timeout::@6890427a1f51a3e7e1df",

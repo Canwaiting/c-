@@ -40,6 +40,68 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = /home/canwaiting/cpp/cmake-build-debug/
+# =============================================================================
+# Object build statements for EXECUTABLE target echo_splice
+
+
+#############################################
+# Order-only phony target for echo_splice
+
+build cmake_object_order_depends_target_echo_splice: phony || CMakeFiles/echo_splice.dir
+
+build CMakeFiles/echo_splice.dir/network-test/echo_splice.cpp.o: CXX_COMPILER__echo_splice_Debug /home/canwaiting/cpp/network-test/echo_splice.cpp || cmake_object_order_depends_target_echo_splice
+  DEP_FILE = CMakeFiles/echo_splice.dir/network-test/echo_splice.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/echo_splice.dir
+  OBJECT_FILE_DIR = CMakeFiles/echo_splice.dir/network-test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target echo_splice
+
+
+#############################################
+# Link the executable echo_splice
+
+build echo_splice: CXX_EXECUTABLE_LINKER__echo_splice_Debug CMakeFiles/echo_splice.dir/network-test/echo_splice.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/echo_splice.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = echo_splice
+  TARGET_PDB = echo_splice.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target unblockconnect
+
+
+#############################################
+# Order-only phony target for unblockconnect
+
+build cmake_object_order_depends_target_unblockconnect: phony || CMakeFiles/unblockconnect.dir
+
+build CMakeFiles/unblockconnect.dir/network-test/unblockconnect.cpp.o: CXX_COMPILER__unblockconnect_Debug /home/canwaiting/cpp/network-test/unblockconnect.cpp || cmake_object_order_depends_target_unblockconnect
+  DEP_FILE = CMakeFiles/unblockconnect.dir/network-test/unblockconnect.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/unblockconnect.dir
+  OBJECT_FILE_DIR = CMakeFiles/unblockconnect.dir/network-test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target unblockconnect
+
+
+#############################################
+# Link the executable unblockconnect
+
+build unblockconnect: CXX_EXECUTABLE_LINKER__unblockconnect_Debug CMakeFiles/unblockconnect.dir/network-test/unblockconnect.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/unblockconnect.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = unblockconnect
+  TARGET_PDB = unblockconnect.dbg
+
 
 #############################################
 # Utility command for rebuild_cache
@@ -51,172 +113,6 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
   restat = 1
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
-
-# =============================================================================
-# Object build statements for EXECUTABLE target connect_timeout
-
-
-#############################################
-# Order-only phony target for connect_timeout
-
-build cmake_object_order_depends_target_connect_timeout: phony || CMakeFiles/connect_timeout.dir
-
-build CMakeFiles/connect_timeout.dir/network-test/connect_timeout.cpp.o: CXX_COMPILER__connect_timeout_Debug /home/canwaiting/cpp/network-test/connect_timeout.cpp || cmake_object_order_depends_target_connect_timeout
-  DEP_FILE = CMakeFiles/connect_timeout.dir/network-test/connect_timeout.cpp.o.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles/connect_timeout.dir
-  OBJECT_FILE_DIR = CMakeFiles/connect_timeout.dir/network-test
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target connect_timeout
-
-
-#############################################
-# Link the executable connect_timeout
-
-build connect_timeout: CXX_EXECUTABLE_LINKER__connect_timeout_Debug CMakeFiles/connect_timeout.dir/network-test/connect_timeout.cpp.o
-  FLAGS = -g
-  OBJECT_DIR = CMakeFiles/connect_timeout.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = connect_timeout
-  TARGET_PDB = connect_timeout.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target multi_port
-
-
-#############################################
-# Order-only phony target for multi_port
-
-build cmake_object_order_depends_target_multi_port: phony || CMakeFiles/multi_port.dir
-
-build CMakeFiles/multi_port.dir/network-test/multi_port.cpp.o: CXX_COMPILER__multi_port_Debug /home/canwaiting/cpp/network-test/multi_port.cpp || cmake_object_order_depends_target_multi_port
-  DEP_FILE = CMakeFiles/multi_port.dir/network-test/multi_port.cpp.o.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles/multi_port.dir
-  OBJECT_FILE_DIR = CMakeFiles/multi_port.dir/network-test
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target multi_port
-
-
-#############################################
-# Link the executable multi_port
-
-build multi_port: CXX_EXECUTABLE_LINKER__multi_port_Debug CMakeFiles/multi_port.dir/network-test/multi_port.cpp.o
-  FLAGS = -g
-  OBJECT_DIR = CMakeFiles/multi_port.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = multi_port
-  TARGET_PDB = multi_port.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target mytalk_server
-
-
-#############################################
-# Order-only phony target for mytalk_server
-
-build cmake_object_order_depends_target_mytalk_server: phony || CMakeFiles/mytalk_server.dir
-
-build CMakeFiles/mytalk_server.dir/network-test/mytalk_server.cpp.o: CXX_COMPILER__mytalk_server_Debug /home/canwaiting/cpp/network-test/mytalk_server.cpp || cmake_object_order_depends_target_mytalk_server
-  DEP_FILE = CMakeFiles/mytalk_server.dir/network-test/mytalk_server.cpp.o.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles/mytalk_server.dir
-  OBJECT_FILE_DIR = CMakeFiles/mytalk_server.dir/network-test
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target mytalk_server
-
-
-#############################################
-# Link the executable mytalk_server
-
-build mytalk_server: CXX_EXECUTABLE_LINKER__mytalk_server_Debug CMakeFiles/mytalk_server.dir/network-test/mytalk_server.cpp.o
-  FLAGS = -g
-  OBJECT_DIR = CMakeFiles/mytalk_server.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = mytalk_server
-  TARGET_PDB = mytalk_server.dbg
-
-
-#############################################
-# Utility command for edit_cache
-
-build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/canwaiting/cpp/cmake-build-debug && /home/canwaiting/tool/clion/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build edit_cache: phony CMakeFiles/edit_cache.util
-
-# =============================================================================
-# Object build statements for EXECUTABLE target nonactive_conn
-
-
-#############################################
-# Order-only phony target for nonactive_conn
-
-build cmake_object_order_depends_target_nonactive_conn: phony || CMakeFiles/nonactive_conn.dir
-
-build CMakeFiles/nonactive_conn.dir/network-test/nonactive_conn.cpp.o: CXX_COMPILER__nonactive_conn_Debug /home/canwaiting/cpp/network-test/nonactive_conn.cpp || cmake_object_order_depends_target_nonactive_conn
-  DEP_FILE = CMakeFiles/nonactive_conn.dir/network-test/nonactive_conn.cpp.o.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles/nonactive_conn.dir
-  OBJECT_FILE_DIR = CMakeFiles/nonactive_conn.dir/network-test
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target nonactive_conn
-
-
-#############################################
-# Link the executable nonactive_conn
-
-build nonactive_conn: CXX_EXECUTABLE_LINKER__nonactive_conn_Debug CMakeFiles/nonactive_conn.dir/network-test/nonactive_conn.cpp.o
-  FLAGS = -g
-  OBJECT_DIR = CMakeFiles/nonactive_conn.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = nonactive_conn
-  TARGET_PDB = nonactive_conn.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target mytalk_client
-
-
-#############################################
-# Order-only phony target for mytalk_client
-
-build cmake_object_order_depends_target_mytalk_client: phony || CMakeFiles/mytalk_client.dir
-
-build CMakeFiles/mytalk_client.dir/network-test/mytalk_client.cpp.o: CXX_COMPILER__mytalk_client_Debug /home/canwaiting/cpp/network-test/mytalk_client.cpp || cmake_object_order_depends_target_mytalk_client
-  DEP_FILE = CMakeFiles/mytalk_client.dir/network-test/mytalk_client.cpp.o.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles/mytalk_client.dir
-  OBJECT_FILE_DIR = CMakeFiles/mytalk_client.dir/network-test
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target mytalk_client
-
-
-#############################################
-# Link the executable mytalk_client
-
-build mytalk_client: CXX_EXECUTABLE_LINKER__mytalk_client_Debug CMakeFiles/mytalk_client.dir/network-test/mytalk_client.cpp.o
-  FLAGS = -g
-  OBJECT_DIR = CMakeFiles/mytalk_client.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = mytalk_client
-  TARGET_PDB = mytalk_client.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target unievent
@@ -250,66 +146,232 @@ build unievent: CXX_EXECUTABLE_LINKER__unievent_Debug CMakeFiles/unievent.dir/ne
   TARGET_PDB = unievent.dbg
 
 # =============================================================================
-# Object build statements for EXECUTABLE target unblockconnect
+# Object build statements for EXECUTABLE target mytalk_client
 
 
 #############################################
-# Order-only phony target for unblockconnect
+# Order-only phony target for mytalk_client
 
-build cmake_object_order_depends_target_unblockconnect: phony || CMakeFiles/unblockconnect.dir
+build cmake_object_order_depends_target_mytalk_client: phony || CMakeFiles/mytalk_client.dir
 
-build CMakeFiles/unblockconnect.dir/network-test/unblockconnect.cpp.o: CXX_COMPILER__unblockconnect_Debug /home/canwaiting/cpp/network-test/unblockconnect.cpp || cmake_object_order_depends_target_unblockconnect
-  DEP_FILE = CMakeFiles/unblockconnect.dir/network-test/unblockconnect.cpp.o.d
+build CMakeFiles/mytalk_client.dir/network-test/mytalk_client.cpp.o: CXX_COMPILER__mytalk_client_Debug /home/canwaiting/cpp/network-test/mytalk_client.cpp || cmake_object_order_depends_target_mytalk_client
+  DEP_FILE = CMakeFiles/mytalk_client.dir/network-test/mytalk_client.cpp.o.d
   FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles/unblockconnect.dir
-  OBJECT_FILE_DIR = CMakeFiles/unblockconnect.dir/network-test
+  OBJECT_DIR = CMakeFiles/mytalk_client.dir
+  OBJECT_FILE_DIR = CMakeFiles/mytalk_client.dir/network-test
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target unblockconnect
+# Link build statements for EXECUTABLE target mytalk_client
 
 
 #############################################
-# Link the executable unblockconnect
+# Link the executable mytalk_client
 
-build unblockconnect: CXX_EXECUTABLE_LINKER__unblockconnect_Debug CMakeFiles/unblockconnect.dir/network-test/unblockconnect.cpp.o
+build mytalk_client: CXX_EXECUTABLE_LINKER__mytalk_client_Debug CMakeFiles/mytalk_client.dir/network-test/mytalk_client.cpp.o
   FLAGS = -g
-  OBJECT_DIR = CMakeFiles/unblockconnect.dir
+  OBJECT_DIR = CMakeFiles/mytalk_client.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = unblockconnect
-  TARGET_PDB = unblockconnect.dbg
+  TARGET_FILE = mytalk_client
+  TARGET_PDB = mytalk_client.dbg
 
 # =============================================================================
-# Object build statements for EXECUTABLE target echo_splice
+# Object build statements for EXECUTABLE target nonactive_conn
 
 
 #############################################
-# Order-only phony target for echo_splice
+# Order-only phony target for nonactive_conn
 
-build cmake_object_order_depends_target_echo_splice: phony || CMakeFiles/echo_splice.dir
+build cmake_object_order_depends_target_nonactive_conn: phony || CMakeFiles/nonactive_conn.dir
 
-build CMakeFiles/echo_splice.dir/network-test/echo_splice.cpp.o: CXX_COMPILER__echo_splice_Debug /home/canwaiting/cpp/network-test/echo_splice.cpp || cmake_object_order_depends_target_echo_splice
-  DEP_FILE = CMakeFiles/echo_splice.dir/network-test/echo_splice.cpp.o.d
+build CMakeFiles/nonactive_conn.dir/network-test/nonactive_conn.cpp.o: CXX_COMPILER__nonactive_conn_Debug /home/canwaiting/cpp/network-test/nonactive_conn.cpp || cmake_object_order_depends_target_nonactive_conn
+  DEP_FILE = CMakeFiles/nonactive_conn.dir/network-test/nonactive_conn.cpp.o.d
   FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles/echo_splice.dir
-  OBJECT_FILE_DIR = CMakeFiles/echo_splice.dir/network-test
+  OBJECT_DIR = CMakeFiles/nonactive_conn.dir
+  OBJECT_FILE_DIR = CMakeFiles/nonactive_conn.dir/network-test
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target echo_splice
+# Link build statements for EXECUTABLE target nonactive_conn
 
 
 #############################################
-# Link the executable echo_splice
+# Link the executable nonactive_conn
 
-build echo_splice: CXX_EXECUTABLE_LINKER__echo_splice_Debug CMakeFiles/echo_splice.dir/network-test/echo_splice.cpp.o
+build nonactive_conn: CXX_EXECUTABLE_LINKER__nonactive_conn_Debug CMakeFiles/nonactive_conn.dir/network-test/nonactive_conn.cpp.o
   FLAGS = -g
-  OBJECT_DIR = CMakeFiles/echo_splice.dir
+  OBJECT_DIR = CMakeFiles/nonactive_conn.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = echo_splice
-  TARGET_PDB = echo_splice.dbg
+  TARGET_FILE = nonactive_conn
+  TARGET_PDB = nonactive_conn.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target mytalk_server
+
+
+#############################################
+# Order-only phony target for mytalk_server
+
+build cmake_object_order_depends_target_mytalk_server: phony || CMakeFiles/mytalk_server.dir
+
+build CMakeFiles/mytalk_server.dir/network-test/mytalk_server.cpp.o: CXX_COMPILER__mytalk_server_Debug /home/canwaiting/cpp/network-test/mytalk_server.cpp || cmake_object_order_depends_target_mytalk_server
+  DEP_FILE = CMakeFiles/mytalk_server.dir/network-test/mytalk_server.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/mytalk_server.dir
+  OBJECT_FILE_DIR = CMakeFiles/mytalk_server.dir/network-test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target mytalk_server
+
+
+#############################################
+# Link the executable mytalk_server
+
+build mytalk_server: CXX_EXECUTABLE_LINKER__mytalk_server_Debug CMakeFiles/mytalk_server.dir/network-test/mytalk_server.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/mytalk_server.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = mytalk_server
+  TARGET_PDB = mytalk_server.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target multi_port
+
+
+#############################################
+# Order-only phony target for multi_port
+
+build cmake_object_order_depends_target_multi_port: phony || CMakeFiles/multi_port.dir
+
+build CMakeFiles/multi_port.dir/network-test/multi_port.cpp.o: CXX_COMPILER__multi_port_Debug /home/canwaiting/cpp/network-test/multi_port.cpp || cmake_object_order_depends_target_multi_port
+  DEP_FILE = CMakeFiles/multi_port.dir/network-test/multi_port.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/multi_port.dir
+  OBJECT_FILE_DIR = CMakeFiles/multi_port.dir/network-test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target multi_port
+
+
+#############################################
+# Link the executable multi_port
+
+build multi_port: CXX_EXECUTABLE_LINKER__multi_port_Debug CMakeFiles/multi_port.dir/network-test/multi_port.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/multi_port.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = multi_port
+  TARGET_PDB = multi_port.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target connect_timeout
+
+
+#############################################
+# Order-only phony target for connect_timeout
+
+build cmake_object_order_depends_target_connect_timeout: phony || CMakeFiles/connect_timeout.dir
+
+build CMakeFiles/connect_timeout.dir/network-test/connect_timeout.cpp.o: CXX_COMPILER__connect_timeout_Debug /home/canwaiting/cpp/network-test/connect_timeout.cpp || cmake_object_order_depends_target_connect_timeout
+  DEP_FILE = CMakeFiles/connect_timeout.dir/network-test/connect_timeout.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/connect_timeout.dir
+  OBJECT_FILE_DIR = CMakeFiles/connect_timeout.dir/network-test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target connect_timeout
+
+
+#############################################
+# Link the executable connect_timeout
+
+build connect_timeout: CXX_EXECUTABLE_LINKER__connect_timeout_Debug CMakeFiles/connect_timeout.dir/network-test/connect_timeout.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/connect_timeout.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = connect_timeout
+  TARGET_PDB = connect_timeout.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/canwaiting/cpp/cmake-build-debug && /home/canwaiting/tool/clion/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+# =============================================================================
+# Object build statements for EXECUTABLE target chatroom_server
+
+
+#############################################
+# Order-only phony target for chatroom_server
+
+build cmake_object_order_depends_target_chatroom_server: phony || CMakeFiles/chatroom_server.dir
+
+build CMakeFiles/chatroom_server.dir/network-test/chatroom_server.cpp.o: CXX_COMPILER__chatroom_server_Debug /home/canwaiting/cpp/network-test/chatroom_server.cpp || cmake_object_order_depends_target_chatroom_server
+  DEP_FILE = CMakeFiles/chatroom_server.dir/network-test/chatroom_server.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/chatroom_server.dir
+  OBJECT_FILE_DIR = CMakeFiles/chatroom_server.dir/network-test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target chatroom_server
+
+
+#############################################
+# Link the executable chatroom_server
+
+build chatroom_server: CXX_EXECUTABLE_LINKER__chatroom_server_Debug CMakeFiles/chatroom_server.dir/network-test/chatroom_server.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/chatroom_server.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = chatroom_server
+  TARGET_PDB = chatroom_server.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target chatroom_client
+
+
+#############################################
+# Order-only phony target for chatroom_client
+
+build cmake_object_order_depends_target_chatroom_client: phony || CMakeFiles/chatroom_client.dir
+
+build CMakeFiles/chatroom_client.dir/network-test/chatroom_client.cpp.o: CXX_COMPILER__chatroom_client_Debug /home/canwaiting/cpp/network-test/chatroom_client.cpp || cmake_object_order_depends_target_chatroom_client
+  DEP_FILE = CMakeFiles/chatroom_client.dir/network-test/chatroom_client.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/chatroom_client.dir
+  OBJECT_FILE_DIR = CMakeFiles/chatroom_client.dir/network-test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target chatroom_client
+
+
+#############################################
+# Link the executable chatroom_client
+
+build chatroom_client: CXX_EXECUTABLE_LINKER__chatroom_client_Debug CMakeFiles/chatroom_client.dir/network-test/chatroom_client.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/chatroom_client.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = chatroom_client
+  TARGET_PDB = chatroom_client.dbg
 
 # =============================================================================
 # Target aliases.
@@ -322,7 +384,7 @@ build echo_splice: CXX_EXECUTABLE_LINKER__echo_splice_Debug CMakeFiles/echo_spli
 #############################################
 # Folder: /home/canwaiting/cpp/cmake-build-debug
 
-build all: phony connect_timeout multi_port mytalk_server nonactive_conn mytalk_client unievent unblockconnect echo_splice
+build all: phony echo_splice unblockconnect unievent mytalk_client nonactive_conn mytalk_server multi_port connect_timeout chatroom_server chatroom_client
 
 # =============================================================================
 # Built-in targets

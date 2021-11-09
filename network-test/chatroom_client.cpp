@@ -42,7 +42,9 @@ int main(int argc,char* argv[]){
 
     /*send message*/
     const char* message ="Hello!";
-    send(sockfd,message,strlen(message),0); 
+    printf("sockfd:%d\n",sockfd);
+    printf("connect:%d\n",ret);
+    send(sockfd,message,strlen(message),0);
 
     /*close*/ 
     close(sockfd);

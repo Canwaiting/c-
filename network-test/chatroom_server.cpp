@@ -38,11 +38,11 @@ int main(int argc,char* argv[]){
     int listenfd = socket(PF_INET,SOCK_STREAM,0); /*ip4 todo*/ 
     assert(listenfd>=0);
     /*bind*/
-    ret = bind(listenfd,(struct sockaddr*)&address,sizeof(address)); /*todo why*/
-    assert(ret!=-1);
+    int ret_bind = bind(listenfd,(struct sockaddr*)&address,sizeof(address)); /*todo why*/
+    assert(ret_bind!=-1);
     /*listen*/
-    ret = listen(listenfd,5);  
-    assert(ret!=-1);
+    int ret_listen = listen(listenfd,5);
+    assert(ret_listen!=-1);
 
 
     /*intialize client*/ 
@@ -55,7 +55,11 @@ int main(int argc,char* argv[]){
     char buffer[BUF_SIZE];
     memset(buffer,'\0',BUF_SIZE);
     ret = recv(connfd,buffer,BUF_SIZE-1,0);
-    printf("ret:%d",ret);
+    printf("socket:%d\n",listenfd);
+    printf("bind:%d\n",ret_bind);
+    printf("listen:%d\n",ret_listen);
+    printf("connfd:%d\n",connfd);
+    printf("ret:%d\n",ret);
     printf("we get %d byte char:%s\n",ret,buffer); 
     close(connfd);
     /*close*/ 
