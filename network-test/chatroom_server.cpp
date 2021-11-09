@@ -21,33 +21,44 @@ int main(int argc,char* argv[]){
         return 1;
     }
     /*setting ip and port*/
+    int ret = 0;
     const char* ip=argv[1];
     int port = atoi(argv[2]); /*convert string to the int*/
     
     /*value the address*/
     struct sockaddr_in address; /*have family port address */
-    brezo(&address,sizeof(address)); /*initialize data to zero*/
+    bzero(&address,sizeof(address)); /*initialize data to zero*/
     address.sin_family = AF_INET; /*family-ip4*/
     inet_pton(AF_INET,ip,&address.sin_addr); /*convert text to binary and value */
-    address.port = htons(port); /*convert text to binary and value */ 
+    address.sin_port = htons(port); /*convert text to binary and value */ 
 
-    /*create socket*/
+    /*create socket*/ 
     int listenfd = socket(PF_INET,SOCK_STREAM,0); /*ip4 todo*/ 
+    assert(listenfd>=0);
     /*bind*/
-    //todo why we need to ret
     ret = bind(listenfd,(struct sockaddr*)&address,sizeof(address)); /*todo why*/
+    assert(ret!=-1);
     /*listen*/
-    ret = listen(listenfd,5);  //todo what will return
+    ret = listen(listenfd,5);  
+    assert(ret!=-1);
 
 
+    while(1){
+        /*intialize client*/ 
+        struct sockaddr_in client; 
+        socklen_t client_addrlength = sizeof(client);
+        /*connect*/
+        int connfd = accept(listenfd,(struct sockaddr*)&client,&client_addrlength); 
+        if(connfd<=0){
+            printf("errno is:%d\n",errno);
+        }
+        else{
+        } 
+    }
 
+    /*close*/ 
+    close(listenfd); 
 
-
-
-
-
-
-
-    return 1;
+    return 0;
 }
 
