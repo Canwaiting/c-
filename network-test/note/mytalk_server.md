@@ -95,6 +95,9 @@ i want to chase the variable
 
 
 
+todo
+sockeopt error parameter meaning
+POLLIN means client into or client have someting input
 
 
 

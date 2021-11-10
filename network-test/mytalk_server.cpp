@@ -63,6 +63,7 @@ int main( int argc, char* argv[] ) {
     assert( ret != -1 ); 
 
     //create a limited userloop
+    /*why users need many space,because the socket mightbe any number between 0-FD_LIMIT*/
     client_data* users = new client_data[FD_LIMIT];
     pollfd fds[USER_LIMIT+1];
     int user_counter = 0;//none
@@ -79,7 +80,7 @@ int main( int argc, char* argv[] ) {
 
     while( 1 )
     {
-        //todo  user_counter+1 why need to +1
+        /*because the fds[0] use for listen */
         ret = poll( fds, user_counter+1, -1 );
         if ( ret < 0 )
         { printf( "poll failure\n" );

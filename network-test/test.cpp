@@ -5,7 +5,7 @@ using namespace std;
 
 int main(){
     int a = 0 | 2;
-    int b = 2 & 2;
+    int b = 1 & 2;
     cout<<"a:"<<a<<endl;
     cout<<"b:"<<b<<endl;
 
