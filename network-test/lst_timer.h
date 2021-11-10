@@ -178,42 +178,67 @@ public:
         printf( "timer tick\n" );
         time_t cur = time( NULL ); /*get the time by now*/
 
+        /*todo from first timer to the end until find out the timeout one */
         util_timer* tmp = head; /*from the head*/
         while( tmp )
         {
-            /**/
+            /*not timeout yet*/
             if( cur < tmp->expire )
             {
                 break;
             }
+
+            /*todo the callback*/
             tmp->cb_func( tmp->user_data );
+
+            /*
+             * 1-->2-->tmp-->4-->5
+             * 1-->2-->tmp-->4(head)-->5
+             */
             head = tmp->next;
+
+            /*mean tmp not the last one*/
             if( head )
             {
-                head->prev = NULL;
+                head->prev = NULL; /* 1-->2-->tmp||4(head)-->5*/
             }
-            delete tmp;
-            tmp = head;
+
+            delete tmp; /* 1-->2-->null||4(head)-->5*/
+            /*start from the 4*/
+            tmp = head; /*4(head)(tmp)*/
         }
     }
 
 private:
+    /*
+     * full list
+     * 1-->2-->3-->4-->5-->lst_head-->...
+     */
     void add_timer( util_timer* timer, util_timer* lst_head )
     {
+        /* 1-->2-->3-->4-->5-->lst_head(prev)-->tmp...*/
         util_timer* prev = lst_head;
         util_timer* tmp = prev->next;
+
+        /*from first to lase*/
         while( tmp )
         {
+            /*keep ascending*/
             if( timer->expire < tmp->expire )
             {
-                prev->next = timer;
+                prev->next = timer; /* 1-->2-->3-->4-->5-->lst_head(prev)-->timer||tmp-->...*/
+                /* 1-->2-->3-->4-->5-->lst_head(prev)-->timer-->tmp-->...*/
                 timer->next = tmp;
                 tmp->prev = timer;
+
+                /* 1-->2-->3-->4-->5-->lst_head-->timer(prev)-->tmp-->...*/
                 timer->prev = prev;
                 break;
             }
-            prev = tmp;
-            tmp = tmp->next;
+
+            /*else go to next one*/
+            prev = tmp; /* 1-->2-->3-->4-->5-->lst_head-->tmp(prev)...*/
+            tmp = tmp->next; /* 1-->2-->3-->4-->5-->lst_head-->tmp(prev)-->tmp...*/
         }
         if( !tmp )
         {
