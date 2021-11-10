@@ -174,11 +174,14 @@ public:
         {
             return;
         }
+
         printf( "timer tick\n" );
-        time_t cur = time( NULL );
-        util_timer* tmp = head;
+        time_t cur = time( NULL ); /*get the time by now*/
+
+        util_timer* tmp = head; /*from the head*/
         while( tmp )
         {
+            /**/
             if( cur < tmp->expire )
             {
                 break;
