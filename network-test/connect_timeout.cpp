@@ -12,8 +12,8 @@
 
 int timeout_connect( const char* ip, int port, int time )
 {
-    int ret = 0; /*todo*/
     /*initialize the client*/
+    int ret = 0;
     struct sockaddr_in address;
     bzero( &address, sizeof( address ) );
     address.sin_family = AF_INET;
@@ -29,10 +29,14 @@ int timeout_connect( const char* ip, int port, int time )
     timeout.tv_sec = time; /*second*/
     timeout.tv_usec = 0; /*microsecond*/
     socklen_t len = sizeof( timeout );
+
+    /*todo let the socket be controled by timeout*/
     ret = setsockopt( sockfd, SOL_SOCKET, SO_SNDTIMEO, &timeout, len );
     assert( ret != -1 );
 
+    /*connect*/
     ret = connect( sockfd, ( struct sockaddr* )&address, sizeof( address ) );
+
     if ( ret == -1 )
     {
         if( errno == EINPROGRESS )
@@ -58,6 +62,7 @@ int main( int argc, char* argv[] )
     int port = atoi( argv[2] );
 
     int sockfd = timeout_connect( ip, port, 10 );
+
     if ( sockfd < 0 )
     {
         return 1;
