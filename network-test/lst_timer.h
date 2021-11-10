@@ -71,8 +71,11 @@ public:
         }
         add_timer( timer, head ); /*use another function*/
     }
+
+    /*if the timer timeout,let the timer move to the tail*/
     void adjust_timer( util_timer* timer )
     {
+        /*no timer,break the function*/
         if( !timer )
         {
             return;
@@ -81,42 +84,59 @@ public:
 
         /*
          * no need to adjust if
-         * timer-->temp(null)
-         * expire<expire
+         * the timer is the last one
+         *     timer-->temp
+         * or expire<expire state ascending
          */
         if( !tmp || ( timer->expire < tmp->expire ) )
         {
             return;
         }
 
-        /**/
+        /*get it from the chain and re_put to the chain*/
         if( timer == head )
         {
-            head = head->next;
-            head->prev = NULL;
-            timer->next = NULL;
-            add_timer( timer, head );
+            head = head->next; /*change the position*/
+            head->prev = NULL; /*delete original prev*/
+            timer->next = NULL; /*delete original next*/
+            add_timer( timer, head ); /*add it to the chain again*/
         }
         else
         {
+            /*
+             * let the timer alone
+             * before:1-->timer-->3
+             * after: 1-->3    timer
+             */
             timer->prev->next = timer->next;
             timer->next->prev = timer->prev;
-            add_timer( timer, timer->next );
+            add_timer( timer, timer->next ); //todo
         }
     }
+
+    /*delete the timer*/
     void del_timer( util_timer* timer )
     {
         if( !timer )
         {
             return;
         }
+
+        /*only one timer*/
         if( ( timer == head ) && ( timer == tail ) )
         {
+            /*free all the timer and pointer*/
             delete timer;
             head = NULL;
             tail = NULL;
             return;
         }
+
+        /*
+         * timer is the head
+         * timer(head)-->2
+         * 2(head)-->3
+         */
         if( timer == head )
         {
             head = head->next;
@@ -124,17 +144,30 @@ public:
             delete timer;
             return;
         }
+
+        /*
+         * timer is the tail
+         * 1-->2-->timer(tail)
+         * 1-->2(tail)
+         */
         if( timer == tail )
         {
-            tail = tail->prev;
-            tail->next = NULL;
+            tail = tail->prev; /*change the position*/
+            tail->next = NULL; /*separate the timer*/
             delete timer;
             return;
         }
+
+        /*
+         * 1-->timer-->2
+         * 1-->2
+         */
         timer->prev->next = timer->next;
         timer->next->prev = timer->prev;
+
         delete timer;
     }
+
     void tick()
     {
         if( !head )
