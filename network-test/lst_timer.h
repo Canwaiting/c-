@@ -240,8 +240,14 @@ private:
             prev = tmp; /* 1-->2-->3-->4-->5-->lst_head-->tmp(prev)...*/
             tmp = tmp->next; /* 1-->2-->3-->4-->5-->lst_head-->tmp(prev)-->tmp...*/
         }
+
+        /*
+         * still not find out who bigger than the timer
+         * add it to the end
+         */
         if( !tmp )
         {
+            /* 1-->2-->3-->4-->5-->lst_head-->.....(prev)-->timer-->null...*/
             prev->next = timer;
             timer->prev = prev;
             timer->next = NULL;
