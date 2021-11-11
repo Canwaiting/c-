@@ -97,11 +97,13 @@ int main( int argc, char* argv[] )
     ret = listen( listenfd, 5 );
     assert( ret != -1 );
 
+    /*create the epoll*/
     epoll_event events[ MAX_EVENT_NUMBER ];
     int epollfd = epoll_create( 5 );
     assert( epollfd != -1 );
     addfd( epollfd, listenfd );
 
+    /*todo*/
     ret = socketpair( PF_UNIX, SOCK_STREAM, 0, pipefd );
     assert( ret != -1 );
     setnonblocking( pipefd[1] );
