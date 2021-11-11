@@ -49,11 +49,14 @@ void sig_handler( int sig )
 
 void addsig( int sig )
 {
+    /*initialize a sigaction*/
     struct sigaction sa;
     memset( &sa, '\0', sizeof( sa ) );
     sa.sa_handler = sig_handler;
     sa.sa_flags |= SA_RESTART;
     sigfillset( &sa.sa_mask );
+
+    /*catch the sig into the &sa to deal with null before*/
     assert( sigaction( sig, &sa, NULL ) != -1 );
 }
 
@@ -103,16 +106,17 @@ int main( int argc, char* argv[] )
     assert( epollfd != -1 );
     addfd( epollfd, listenfd );
 
-    /*todo*/
+    /*just like create a pipe to connect*/
     ret = socketpair( PF_UNIX, SOCK_STREAM, 0, pipefd );
     assert( ret != -1 );
-    setnonblocking( pipefd[1] );
-    addfd( epollfd, pipefd[0] );
+    setnonblocking( pipefd[1] ); /*use for write,so it is in the client side*/
+    addfd( epollfd, pipefd[0] ); /*use for read,so it is in the server side*/
 
-    // add all the interesting signals here
+
+    /*todo set it everytime?*/
     addsig( SIGALRM );
     addsig( SIGTERM );
-    bool stop_server = false;
+    bool stop_server = false; /*set up a start sign*/
 
     client_data* users = new client_data[FD_LIMIT]; 
     bool timeout = false;
