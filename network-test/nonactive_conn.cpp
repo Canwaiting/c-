@@ -118,13 +118,17 @@ int main( int argc, char* argv[] )
     addsig( SIGTERM );
     bool stop_server = false; /*set up a start sign*/
 
+    /*like epoll store the client info*/
     client_data* users = new client_data[FD_LIMIT]; 
     bool timeout = false;
-    alarm( TIMESLOT );
+    alarm( TIMESLOT ); /*todo set a clock*/
 
     while( !stop_server )
     {
+        /*todo may be like epoll*/
         int number = epoll_wait( epollfd, events, MAX_EVENT_NUMBER, -1 );
+
+        /*epoll_wait not be used and system break*/
         if ( ( number < 0 ) && ( errno != EINTR ) )
         {
             printf( "epoll failure\n" );
@@ -133,48 +137,80 @@ int main( int argc, char* argv[] )
     
         for ( int i = 0; i < number; i++ )
         {
+            /*catch the fd now*/
             int sockfd = events[i].data.fd;
+
+            /*have a client to connect*/
             if( sockfd == listenfd )
             {
+                /*initial the client info*/
                 struct sockaddr_in client_address;
                 socklen_t client_addrlength = sizeof( client_address );
+
+                /*make a connect*/
                 int connfd = accept( listenfd, ( struct sockaddr* )&client_address, &client_addrlength );
+                /*add this to the epoll*/
                 addfd( epollfd, connfd );
-                users[connfd].address = client_address;
-                users[connfd].sockfd = connfd;
-                util_timer* timer = new util_timer;
-                timer->user_data = &users[connfd];
-                timer->cb_func = cb_func;
-                time_t cur = time( NULL );
-                timer->expire = cur + 3 * TIMESLOT;
-                users[connfd].timer = timer;
-                timer_lst.add_timer( timer );
+                /*update the users connfd*/
+                users[connfd].address = client_address; /*address*/
+                users[connfd].sockfd = connfd; /*fd*/
+
+                /**/
+                util_timer* timer = new util_timer; /*create a timer*/
+                timer->user_data = &users[connfd]; /*bind the timer to this fd*/
+                timer->cb_func = cb_func; /*todo what is cb_func */
+                time_t cur = time( NULL ); /*initialize the current time*/
+                timer->expire = cur + 3 * TIMESLOT; /*set up the expire time*/
+                users[connfd].timer = timer; /*bind the timer to the user*/
+                timer_lst.add_timer( timer ); /*add the timer to the clock chain*/
             }
+
+            /*todo where have something can read*/
             else if( ( sockfd == pipefd[0] ) && ( events[i].events & EPOLLIN ) )
             {
+                /*make a signal*/
                 int sig;
-                char signals[1024];
+                char signals[1024]; /*use for store the signal*/
+
+                /*
+                 * use for read the signal
+                 * receive the signal to the signals buffer
+                 */
                 ret = recv( pipefd[0], signals, sizeof( signals ), 0 );
+
+                /*todo notsure it means nonblocking*/
                 if( ret == -1 )
                 {
                     // handle the error
                     continue;
                 }
+
+                /*todo notsure shutdown or the client send 0 length data*/
                 else if( ret == 0 )
                 {
                     continue;
                 }
+
+                /*
+                 * todo need to debug
+                 * todo see the ret return
+                 *
+                 */
                 else
                 {
+                    /*check the signals*/
                     for( int i = 0; i < ret; ++i )
                     {
                         switch( signals[i] )
                         {
+                            /*ALARM CLOCK*/
                             case SIGALRM:
                             {
                                 timeout = true;
                                 break;
                             }
+
+                            /*disconnect*/
                             case SIGTERM:
                             {
                                 stop_server = true;
@@ -183,6 +219,8 @@ int main( int argc, char* argv[] )
                     }
                 }
             }
+
+            /*todo where have write something*/
             else if(  events[i].events & EPOLLIN )
             {
                 memset( users[sockfd].buf, '\0', BUFFER_SIZE );
@@ -228,8 +266,8 @@ int main( int argc, char* argv[] )
 
         if( timeout )
         {
-            timer_handler();
-            timeout = false;
+            timer_handler(); /*handle the clock*/
+            timeout = false; /*reset the alarm*/
         }
     }
 
