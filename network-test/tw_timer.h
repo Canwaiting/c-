@@ -7,6 +7,7 @@
 
 #define BUFFER_SIZE 64
 class tw_timer;
+
 struct client_data
 {
     sockaddr_in address;
