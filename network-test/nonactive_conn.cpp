@@ -223,10 +223,15 @@ int main( int argc, char* argv[] )
             /*todo where have write something*/
             else if(  events[i].events & EPOLLIN )
             {
+                /*receive the data*/
                 memset( users[sockfd].buf, '\0', BUFFER_SIZE );
                 ret = recv( sockfd, users[sockfd].buf, BUFFER_SIZE-1, 0 );
                 printf( "get %d bytes of client data %s from %d\n", ret, users[sockfd].buf, sockfd );
+
+                /*get a timer */
                 util_timer* timer = users[sockfd].timer;
+
+                /*error*/
                 if( ret < 0 )
                 {
                     if( errno != EAGAIN )
@@ -238,6 +243,8 @@ int main( int argc, char* argv[] )
                         }
                     }
                 }
+
+                /*nothing*/
                 else if( ret == 0 )
                 {
                     cb_func( &users[sockfd] );
@@ -246,18 +253,23 @@ int main( int argc, char* argv[] )
                         timer_lst.del_timer( timer );
                     }
                 }
+
+
+                /*have something to receive and  */
                 else
                 {
                     //send( sockfd, users[sockfd].buf, BUFFER_SIZE-1, 0 );
                     if( timer )
                     {
-                        time_t cur = time( NULL );
-                        timer->expire = cur + 3 * TIMESLOT;
-                        printf( "adjust timer once\n" );
-                        timer_lst.adjust_timer( timer );
+                        time_t cur = time( NULL ); /*get current time*/
+                        timer->expire = cur + 3 * TIMESLOT; /*set a alarm timer*/
+                        printf( "adjust timer once\n" ); /*reset the timer*/
+                        timer_lst.adjust_timer( timer ); /*if the timer timeout,let the timer move to the tail*/
                     }
                 }
             }
+
+            /*no do yet*/
             else
             {
                 // others
@@ -271,9 +283,10 @@ int main( int argc, char* argv[] )
         }
     }
 
-    close( listenfd );
-    close( pipefd[1] );
-    close( pipefd[0] );
-    delete [] users;
+    /*close*/
+    close( listenfd ); /*close the socket*/
+    close( pipefd[1] ); /*close the server side*/
+    close( pipefd[0] );/*close the client side*/
+    delete [] users; /*free the memory*/
     return 0;
 }
