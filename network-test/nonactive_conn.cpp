@@ -66,10 +66,11 @@ void timer_handler()
     alarm( TIMESLOT );
 }
 
+/*TODO: use to close the fd?*/
 void cb_func( client_data* user_data )
 {
     epoll_ctl( epollfd, EPOLL_CTL_DEL, user_data->sockfd, 0 );
-    assert( user_data );
+    assert( user_data ); /*if there is null,return error*/
     close( user_data->sockfd );
     printf( "close fd %d\n", user_data->sockfd );
 }
