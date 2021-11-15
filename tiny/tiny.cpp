@@ -53,9 +53,14 @@ int main(int argc,char* argv[]){
 
         /*doit*/
 
+        /*Rio_readinitb(&rio, fd);*/
+        /*rio_readinitb(rp, fd);*/
 
 
-        /*close*/
+
+
+
+
         close(connfd);
     }
 
