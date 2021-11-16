@@ -27,7 +27,7 @@ public:
 public:
     int rotation; /*how many round*/
     int time_slot; /*which slot*/
-    void (*cb_func)( client_data* ); /*TODO:gammer*/
+    void (*cb_func)( client_data* ); /*TODO:call back*/
     client_data* user_data; /*TODO*/
 
     /* timer<--(prev)timer(next)-->timer */
@@ -64,6 +64,7 @@ public:
         }
     }
 
+    /*add the timer*/
     tw_timer* add_timer( int timeout )
     {
         /*error*/
@@ -168,7 +169,7 @@ public:
         tw_timer* tmp = slots[cur_slot];
         printf( "current slot is %d\n", cur_slot );
 
-        /*TODO*/
+        /*check all current slot timer list*/
         while( tmp )
         {
             printf( "tick the timer once\n" );
@@ -183,8 +184,9 @@ public:
             /*do the job and delete this timer*/
             else
             {
-                tmp->cb_func( tmp->user_data ); /*TODO*/
-                /**/
+                tmp->cb_func( tmp->user_data ); /*TODO:maybe doit*/
+
+                /*delete the timer,head*/
                 if( tmp == slots[cur_slot] )
                 {
                     printf( "delete header in cur_slot\n" );
@@ -196,6 +198,8 @@ public:
                     }
                     tmp = slots[cur_slot];
                 }
+
+                /*delete the timer,not head*/
                 else
                 {
                     tmp->prev->next = tmp->next;
@@ -203,15 +207,15 @@ public:
                     {
                         tmp->next->prev = tmp->prev;
                     }
-                    tw_timer* tmp2 = tmp->next;
+                    tw_timer* tmp2 = tmp->next; /*for keep going*/
                     delete tmp;
-                    tmp = tmp2;
+                    tmp = tmp2; /*move the next*/
                 }
             }
         }
 
-        /**/
-        cur_slot = ++cur_slot % N;
+        /*update the current slot*/
+        cur_slot = ++cur_slot % N; /*%N for cur_slot>N*/
     }
 
 private:
