@@ -35,6 +35,7 @@ public:
 
 class time_wheel
 {
+    /*TODOTODO:*/
 public:
     time_wheel() : cur_slot( 0 )
     {
@@ -159,7 +160,7 @@ private:
     static const int N = 60;
     static const int TI = 1; 
     tw_timer* slots[N];
-    int cur_slot;
+    int cur_slot; /*TODO:maybe current slot*/
 };
 
 #endif
