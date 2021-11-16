@@ -70,19 +70,27 @@ public:
             return NULL;
         }
 
-        /*TODO*/
-        int ticks = 0;
-
+        /*how many tick the timer need before alarm*/
+        int ticks = 0; /*initialize*/
+        /*if timeout less than TI,equal 1 tick*/
         if( timeout < TI )
         {
             ticks = 1;
         }
+
+        /*else just get the integer*/
         else
         {
             ticks = timeout / TI;
         }
+
+        /*calculate how many round the timer need before alarm*/
         int rotation = ticks / N;
+
+        /*which slot should timer in*/
         int ts = ( cur_slot + ( ticks % N ) ) % N;
+
+        /*make a new timer in ts slot,which will alarm when spin roation*/
         tw_timer* timer = new tw_timer( rotation, ts );
         if( !slots[ts] )
         {
