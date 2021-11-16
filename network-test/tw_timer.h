@@ -25,7 +25,7 @@ public:
     : next( NULL ), prev( NULL ), rotation( rot ), time_slot( ts ){}
 
 public:
-    int rotation; /*TODO*/
+    int rotation; /*how many round*/
     int time_slot; /*which slot*/
     void (*cb_func)( client_data* ); /*TODO:gammer*/
     client_data* user_data; /*TODO*/
@@ -92,10 +92,12 @@ public:
 
         /*make a new timer in ts slot,which will alarm when spin roation*/
         tw_timer* timer = new tw_timer( rotation, ts );
+
+        /*if the slots is null,add it and put it to the head pointer*/
         if( !slots[ts] )
         {
             printf( "add timer, rotation is %d, ts is %d, cur_slot is %d\n", rotation, ts, cur_slot );
-            slots[ts] = timer;
+            slots[ts] = timer; /**/
         }
         else
         {
