@@ -35,35 +35,44 @@ public:
 
 class time_wheel
 {
-    /*TODOTODO:*/
 public:
+    /*initialize the whole time_wheel*/
     time_wheel() : cur_slot( 0 )
     {
+        /*initialize the every single slot*/
         for( int i = 0; i < N; ++i )
         {
-            slots[i] = NULL;
+            slots[i] = NULL; /*let it be the null list*/
         }
     }
+
+    /*clear all the timer in the slot*/
     ~time_wheel()
     {
         for( int i = 0; i < N; ++i )
         {
             tw_timer* tmp = slots[i];
+            /*delete from begin to the end*/
             while( tmp )
             {
-                slots[i] = tmp->next;
-                delete tmp;
-                tmp = slots[i];
+                slots[i] = tmp->next; /*move the slot[i]*/
+                delete tmp; /*delete the temp*/
+                tmp = slots[i]; /*move the temp*/
             }
         }
     }
+
     tw_timer* add_timer( int timeout )
     {
+        /*error*/
         if( timeout < 0 )
         {
             return NULL;
         }
+
+        /*TODO*/
         int ticks = 0;
+
         if( timeout < TI )
         {
             ticks = 1;
@@ -157,10 +166,10 @@ public:
     }
 
 private:
-    static const int N = 60;
-    static const int TI = 1; 
-    tw_timer* slots[N];
-    int cur_slot; /*TODO:maybe current slot*/
+    static const int N = 60; /*the slot number*/
+    static const int TI = 1; /*tick time is 1s*/
+    tw_timer* slots[N]; /*every slot in the wheel*/
+    int cur_slot; /*current slot*/
 };
 
 #endif
