@@ -29,8 +29,10 @@ public:
     int time_slot; /*which slot*/
     void (*cb_func)( client_data* ); /*TODO:gammer*/
     client_data* user_data; /*TODO*/
-    tw_timer* next; /*TODO*/
-    tw_timer* prev; /*TODO*/
+
+    /* timer<--(prev)timer(next)-->timer */
+    tw_timer* next;
+    tw_timer* prev;
 };
 
 class time_wheel
@@ -97,16 +99,21 @@ public:
         if( !slots[ts] )
         {
             printf( "add timer, rotation is %d, ts is %d, cur_slot is %d\n", rotation, ts, cur_slot );
-            slots[ts] = timer; /**/
+            slots[ts] = timer;
         }
+
+        /*add it to the before*/
         else
         {
             timer->next = slots[ts];
             slots[ts]->prev = timer;
             slots[ts] = timer;
         }
+
+        /*return a timer which already have position*/
         return timer;
     }
+
     void del_timer( tw_timer* timer )
     {
         if( !timer )
