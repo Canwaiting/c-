@@ -8,27 +8,29 @@
 #define BUFFER_SIZE 64
 class tw_timer;
 
+/*client data*/
 struct client_data
 {
-    sockaddr_in address;
-    int sockfd;
-    char buf[ BUFFER_SIZE ];
-    tw_timer* timer;
+    sockaddr_in address; /*address*/
+    int sockfd; /*the file desriptor*/
+    char buf[ BUFFER_SIZE ]; /*TODO*/
+    tw_timer* timer; /*TODO*/
 };
 
 class tw_timer
 {
+/*TODO:know the meaning,dont know the gammer*/
 public:
-    tw_timer( int rot, int ts ) 
+    tw_timer( int rot, int ts )
     : next( NULL ), prev( NULL ), rotation( rot ), time_slot( ts ){}
 
 public:
-    int rotation;
-    int time_slot;
-    void (*cb_func)( client_data* );
-    client_data* user_data;
-    tw_timer* next;
-    tw_timer* prev;
+    int rotation; /*TODO*/
+    int time_slot; /*which slot*/
+    void (*cb_func)( client_data* ); /*TODO:gammer*/
+    client_data* user_data; /*TODO*/
+    tw_timer* next; /*TODO*/
+    tw_timer* prev; /*TODO*/
 };
 
 class time_wheel
