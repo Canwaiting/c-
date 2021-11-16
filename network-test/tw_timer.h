@@ -107,39 +107,60 @@ public:
         {
             timer->next = slots[ts];
             slots[ts]->prev = timer;
-            slots[ts] = timer;
+            slots[ts] = timer; /*timer become the head */
         }
 
         /*return a timer which already have position*/
         return timer;
     }
 
+    /*delete the timer*/
     void del_timer( tw_timer* timer )
     {
+        /*check null or not*/
         if( !timer )
         {
             return;
         }
+
+        /*get the slot position*/
         int ts = timer->time_slot;
+
+        /*if timer is the head*/
         if( timer == slots[ts] )
         {
+            /*move the head to the next*/
             slots[ts] = slots[ts]->next;
+
+            /*if have next*/
             if( slots[ts] )
             {
+                /*separate the timer*/
                 slots[ts]->prev = NULL;
             }
+
             delete timer;
         }
+
+        /*not in the head*/
         else
         {
+            /*get rid of the prev*/
+            /*1(next)-->timer-->2*/
             timer->prev->next = timer->next;
+            /*1(next)-->2*/
+
+            /*get rid of the next,if have next*/
             if( timer->next )
             {
+                /*1-->timer<--(prev)2*/
                 timer->next->prev = timer->prev;
+                /*1<--(prev)2*/
             }
             delete timer;
         }
     }
+
     void tick()
     {
         tw_timer* tmp = slots[cur_slot];
