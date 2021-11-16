@@ -161,21 +161,30 @@ public:
         }
     }
 
+    /*when tick time done,call tick(),which use to move a slot forward*/
     void tick()
     {
+        /*get the current slot's head*/
         tw_timer* tmp = slots[cur_slot];
         printf( "current slot is %d\n", cur_slot );
+
+        /*TODO*/
         while( tmp )
         {
             printf( "tick the timer once\n" );
+
+            /*if not this round,update rotation and move temp to next*/
             if( tmp->rotation > 0 )
             {
                 tmp->rotation--;
                 tmp = tmp->next;
             }
+
+            /*do the job and delete this timer*/
             else
             {
-                tmp->cb_func( tmp->user_data );
+                tmp->cb_func( tmp->user_data ); /*TODO*/
+                /**/
                 if( tmp == slots[cur_slot] )
                 {
                     printf( "delete header in cur_slot\n" );
@@ -200,6 +209,8 @@ public:
                 }
             }
         }
+
+        /**/
         cur_slot = ++cur_slot % N;
     }
 
