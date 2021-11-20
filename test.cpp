@@ -11,6 +11,7 @@ public:
     person()throw(std::exception):age(10)
     {
         cout<<"the person initial function"<<endl;
+        cout<<"hello world"<<endl;
 
     }
 public:
