@@ -35,19 +35,25 @@ public:
 class time_heap
 {
 public:
-    time_heap( int cap ) throw ( std::exception )
+    /*initialize a array-->array[cap]*/
+    time_heap( int cap ) throw ( std::exception ) /*TODO: throw exception*/
         : capacity( cap ), cur_size( 0 )
     {
 	array = new heap_timer* [capacity];
+
+    /*handle the error*/
 	if ( ! array )
 	{
             throw std::exception();
 	}
+        /*initialize the array*/
         for( int i = 0; i < capacity; ++i )
         {
             array[i] = NULL;
         }
     }
+
+    /**/
     time_heap( heap_timer** init_array, int size, int capacity ) throw ( std::exception )
         : cur_size( size ), capacity( capacity )
     {
@@ -76,6 +82,7 @@ public:
             }
         }
     }
+
     ~time_heap()
     {
         for ( int i =  0; i < cur_size; ++i )
