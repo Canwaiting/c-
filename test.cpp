@@ -22,6 +22,7 @@ int main(){
     /*get person_age*/
     person* p1 = new person();
     cout<<"hello world"<<endl; 
+    cout<<"this is the test for github"<<endl;
     //cout<<"person_age:"<<p1->age<<endl;
     return 0;
 }
