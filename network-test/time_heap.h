@@ -35,7 +35,7 @@ public:
 class time_heap
 {
 public:
-    /*initialize a array-->array[cap]*/
+    /*initialize a heap by a null array*/
     time_heap( int cap ) throw ( std::exception ) /*TODO: throw exception*/
         : capacity( cap ), cur_size( 0 )
     {
@@ -53,29 +53,39 @@ public:
         }
     }
 
-    /**/
+    /*initialize a heap by use an array already have*/
+    /*TODO: whats difference between capacity and size*/
     time_heap( heap_timer** init_array, int size, int capacity ) throw ( std::exception )
         : cur_size( size ), capacity( capacity )
     {
+        /*handle error(size error)*/
         if ( capacity < size )
         {
             throw std::exception();
         }
+
         array = new heap_timer* [capacity];
+
+        /*handle error(initialize error)*/
         if ( ! array )
         {
             throw std::exception();
         }
+
         for( int i = 0; i < capacity; ++i )
         {
             array[i] = NULL;
         }
+
+        /*if the init_array have element*/
         if ( size != 0 )
         {
+            /*value the array*/
             for ( int i =  0; i < size; ++i )
             {
                 array[ i ] = init_array[ i ];
             }
+
             for ( int i = (cur_size-1)/2; i >=0; --i )
             {
                 percolate_down( i );
