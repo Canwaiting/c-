@@ -86,6 +86,7 @@ public:
                 array[ i ] = init_array[ i ];
             }
 
+            /*order from bottom to the top,from left to right*/
             for ( int i = (cur_size-1)/2; i >=0; --i )
             {
                 percolate_down( i );
@@ -184,7 +185,9 @@ private:
     void percolate_down( int hole )
     {
         heap_timer* temp = array[hole];
+
         int child = 0;
+
         for ( ; ((hole*2+1) <= (cur_size-1)); hole=child )
         {
             child = hole*2+1;
