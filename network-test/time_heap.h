@@ -184,14 +184,14 @@ public:
 private:
     void percolate_down( int hole )
     {
-        /*TODO*/
+        /*temp store*/
         heap_timer* temp = array[hole];
 
         /*initialize(dont have meaning)*/
         int child = 0;
 
         /*
-         * TODO:the max is the
+         * TODO:just decide the node
          */
         for ( ; ((hole*2+1) <= (cur_size-1)); hole=child )
         {
@@ -201,23 +201,27 @@ private:
             /*
              * not the last element
              * left_child_timeout < right_child_timeout
+             * move the child
              */
             if ( (child < (cur_size-1)) && (array[child+1]->expire < array[child]->expire ) )
             {
                 ++child; /*left child to the right child*/
             }
 
-            /**/
+            /*change the position if hole_timer less than child_timer*/
             if ( array[child]->expire < temp->expire )
             {
                 array[hole] = array[child];
             }
 
+            /*the hole is the minimum*/
             else
             {
                 break;
             }
         }
+
+        /*change the node*/
         array[hole] = temp;
     }
 
