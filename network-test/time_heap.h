@@ -199,7 +199,7 @@ private:
             child = hole*2+1;
 
             /*
-             * TODO:
+             * not the last element
              * left_child_timeout < right_child_timeout
              */
             if ( (child < (cur_size-1)) && (array[child+1]->expire < array[child]->expire ) )
@@ -207,10 +207,12 @@ private:
                 ++child; /*left child to the right child*/
             }
 
+            /**/
             if ( array[child]->expire < temp->expire )
             {
                 array[hole] = array[child];
             }
+
             else
             {
                 break;
@@ -218,6 +220,7 @@ private:
         }
         array[hole] = temp;
     }
+
     void resize() throw ( std::exception )
     {
         heap_timer** temp = new heap_timer* [2*capacity];
