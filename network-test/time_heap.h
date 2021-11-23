@@ -94,6 +94,7 @@ public:
         }
     }
 
+    /*destory the heap*/
     ~time_heap()
     {
         for ( int i =  0; i < cur_size; ++i )
@@ -106,27 +107,45 @@ public:
 public:
     void add_timer( heap_timer* timer ) throw ( std::exception )
     {
+        /*check null error*/
         if( !timer )
         {
             return;
         }
+
+        /*double the array if dont have enough space*/
         if( cur_size >= capacity )
         {
             resize();
         }
+
+        /*make an empty hole*/
         int hole = cur_size++;
+
+        /*initialize*/
         int parent = 0;
+
+        /*percolate_up*/
         for( ; hole > 0; hole=parent )
         {
+            /*get the parent*/
             parent = (hole-1)/2;
+
+            /*the parent_timer<=add_timer*/
             if ( array[parent]->expire <= timer->expire )
             {
                 break;
             }
+
+            /*change the position*/
             array[hole] = array[parent];
         }
+
+        /*add the timer to the hole*/
         array[hole] = timer;
     }
+
+    /*TODO*/
     void del_timer( heap_timer* timer )
     {
         if( !timer )
@@ -136,31 +155,48 @@ public:
         // lazy delelte
         timer->cb_func = NULL;
     }
+
+    /*get the top timer*/
     heap_timer* top() const
     {
+        /*check empty or not*/
         if ( empty() )
         {
             return NULL;
         }
+
         return array[0];
     }
+
+    /*pop out the top timer*/
     void pop_timer()
     {
         if( empty() )
         {
             return;
         }
+
         if( array[0] )
         {
             delete array[0];
+
+            /*let the last to the first*/
             array[0] = array[--cur_size];
+            /*re_percolate_down the top element*/
             percolate_down( 0 );
         }
     }
+
+    /*tick function*/
     void tick()
     {
+        /*TODO*/
         heap_timer* tmp = array[0];
+
+        /*TODO:handle the timeout alarm*/
         time_t cur = time( NULL );
+
+        /**/
         while( !empty() )
         {
             if( !tmp )
@@ -179,9 +215,12 @@ public:
             tmp = array[0];
         }
     }
+
+    /*TODO:how it achieve the func*/
     bool empty() const { return cur_size == 0; }
 
 private:
+    /*let the smaller node to the root*/
     void percolate_down( int hole )
     {
         /*temp store*/
@@ -225,23 +264,37 @@ private:
         array[hole] = temp;
     }
 
+    /*convert the original array to the double size*/
     void resize() throw ( std::exception )
     {
+        /*make a double size array*/
         heap_timer** temp = new heap_timer* [2*capacity];
+
+        /*initialize the new array*/
         for( int i = 0; i < 2*capacity; ++i )
         {
             temp[i] = NULL;
         }
+
+        /*check null error*/
         if ( ! temp )
         {
             throw std::exception();
         }
+
+        /*value the new capacity*/
         capacity = 2*capacity;
+
+        /*transfer the value*/
         for ( int i = 0; i < cur_size; ++i )
         {
             temp[i] = array[i];
         }
+
+        /*delete the old array*/
         delete [] array;
+
+        /*change the array*/
         array = temp;
     }
 
