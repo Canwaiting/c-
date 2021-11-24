@@ -196,7 +196,7 @@ public:
         /*TODO:handle the timeout alarm*/
         time_t cur = time( NULL );
 
-        /**/
+        /*TODO*/
         while( !empty() )
         {
             if( !tmp )
