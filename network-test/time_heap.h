@@ -197,6 +197,7 @@ public:
         time_t cur = time( NULL );
 
         /*TODO*/
+        /*for git*/
         while( !empty() )
         {
             if( !tmp )
