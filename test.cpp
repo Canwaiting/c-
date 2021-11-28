@@ -24,6 +24,7 @@ int main(){
     cout<<"hello world"<<endl; 
     cout<<"this is the test for github"<<endl;
     cout<<"the git for 2021-11-27"<<endl;
+    cout<<"the git for 2021-11-28"<<endl;
     //cout<<"person_age:"<<p1->age<<endl;
     return 0;
 }
