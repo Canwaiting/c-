@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/mytalk_client.dir/network-test/mytalk_client.cpp.o -o mytalk_client 

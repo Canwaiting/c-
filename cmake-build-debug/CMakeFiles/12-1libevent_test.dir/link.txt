@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/12-1libevent_test.dir/network-test/12-1libevent_test.c.o -o 12-1libevent_test 

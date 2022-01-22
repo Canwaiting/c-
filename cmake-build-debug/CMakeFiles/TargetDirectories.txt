@@ -3,6 +3,7 @@
 /home/canwaiting/cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /home/canwaiting/cpp/cmake-build-debug/CMakeFiles/unievent.dir
 /home/canwaiting/cpp/cmake-build-debug/CMakeFiles/mytalk_client.dir
+/home/canwaiting/cpp/cmake-build-debug/CMakeFiles/12-1libevent_test.dir
 /home/canwaiting/cpp/cmake-build-debug/CMakeFiles/nonactive_conn.dir
 /home/canwaiting/cpp/cmake-build-debug/CMakeFiles/mytalk_server.dir
 /home/canwaiting/cpp/cmake-build-debug/CMakeFiles/multi_port.dir

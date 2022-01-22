@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/mytalk_server.dir/network-test/mytalk_server.cpp.o -o mytalk_server 
