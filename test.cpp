@@ -10,6 +10,7 @@ using namespace std;
 void function(){
     vector<int> ar = {-1,0,1,2,-1,-4};
     //ar.push_back(100);
+    cout<<"the size of ar:"<<ar.size()<<endl;
     int target = 1;
 
     int temp = 0;
@@ -23,44 +24,75 @@ void function(){
     vector<int>::iterator save_ptr2;
     vector<int>::iterator save_ptr3;
       
-    cout << "--------the original vector--------" << endl;
-    for (ptr1 = ar.begin(); ptr1 < ar.end(); ptr1++){
-        cout << *ptr1 << " ";
-    }
-    cout<<endl;
-    cout << "--------the original vector--------" << endl;
-    // Displaying vector elements using begin() and end()
-    for (ptr1 = ar.begin(); ptr1 < ar.end()-2; ptr1++)
-    { 
-
-        //the pointer 2
-        for(ptr2=ptr1+1;ptr2<ar.end()-1;ptr2++){ 
-            //the pointer 3
-            for(ptr3=ptr2+1;ptr3<ar.end();ptr3++){ 
-                temp = *ptr1 + *ptr2 + *ptr3; 
-                /*compare the target and save the result and the pointer*/
-                /*if the result relativer than before,replace it*/
-                /*ignore the negative and positive*/
-                result = temp - target;
-
-
-                /*equal the number*/
-                if(temp==0){ 
-                    cout << *ptr1 << " " << *ptr2 << " " << *ptr3 <<" = "<<temp<<endl;
-                    vector<int> res = {*ptr1,*ptr2,*ptr3};
-                    for (ptr = res.begin(); ptr < res.end(); ptr++){
-                        cout << *ptr << " ";
-                    } 
-                    cout<<endl;
-                }
-            }
-        }
-    }
+//    cout << "--------the original vector--------" << endl;
+//    for (ptr1 = ar.begin(); ptr1 < ar.end(); ptr1++){
+//        cout << *ptr1 << " ";
+//    }
+//    cout<<endl;
+//    cout << "--------the original vector--------" << endl;
+//    // Displaying vector elements using begin() and end()
+//    for (ptr1 = ar.begin(); ptr1 < ar.end()-2; ptr1++)
+//    { 
+//
+//        //the pointer 2
+//        for(ptr2=ptr1+1;ptr2<ar.end()-1;ptr2++){ 
+//            //the pointer 3
+//            for(ptr3=ptr2+1;ptr3<ar.end();ptr3++){ 
+//                temp = *ptr1 + *ptr2 + *ptr3; 
+//                /*compare the target and save the result and the pointer*/
+//                /*if the result relativer than before,replace it*/
+//                /*ignore the negative and positive*/
+//                result = temp - target;
+//
+//
+//                /*equal the number*/
+//                if(temp==0){ 
+//                    cout << *ptr1 << " " << *ptr2 << " " << *ptr3 <<" = "<<temp<<endl;
+//                    vector<int> res = {*ptr1,*ptr2,*ptr3};
+//                    for (ptr = res.begin(); ptr < res.end(); ptr++){
+//                        cout << *ptr << " ";
+//                    } 
+//                    cout<<endl;
+//                }
+//            }
+//        }
+//    }
 
 }
 
+void function_1(){
+    int i = 0;
+    while (i < 10) {
+        if (i == 4) {
+            i++;
+            continue;
+        }
+        cout << i << "\n";
+        i++;
+    } 
+} 
+
+void function_2(){
+    int i = 0;
+    while (i < 10) {
+        if (i == 4) {
+            i++;
+            //continue;
+        }
+        cout << i << "\n";
+        i++;
+    } 
+} 
+
+
 int main(){ 
-    function();
+    //function();
+    cout<<"before"<<endl;
+    function_1();
+    cout<<"before"<<endl;
+    cout<<"after"<<endl;
+    function_2();
+    cout<<"after"<<endl;
 
     return 0;
 }
