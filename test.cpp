@@ -1,3 +1,4 @@
+#include <bits/stdc++.h>
 #include <stdio.h>
 #include <iostream>
 #include <vector>
@@ -84,16 +85,19 @@ void function_2(){
     } 
 } 
 
+void function_3(){
+    vector<int> v{ 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 };
+ 
+    sort(v.begin(), v.end());
+ 
+    cout << "Sorted \n";
+    for (auto x : v)
+        cout << x << " "; 
+}
+
 
 int main(){ 
-    //function();
-    cout<<"before"<<endl;
-    function_1();
-    cout<<"before"<<endl;
-    cout<<"after"<<endl;
-    function_2();
-    cout<<"after"<<endl;
-
+    function_3();
     return 0;
 }
 
