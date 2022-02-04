@@ -87,12 +87,14 @@ void function_2(){
 
 void function_3(){
     vector<int> v{ 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 };
+    cout<<v[0]<<endl;
+    
  
-    sort(v.begin(), v.end());
+    //sort(v.begin(), v.end());
  
-    cout << "Sorted \n";
-    for (auto x : v)
-        cout << x << " "; 
+    //cout << "Sorted \n";
+    //for (auto x : v)
+    //   cout << x << " "; 
 }
 
 
