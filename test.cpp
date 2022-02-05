@@ -28,43 +28,6 @@ void function_4(){
 
 }
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-
-class Solution {
-public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        /*初始化一条链表*/
-        ListNode* mergeTwoLists
-        bool empty1 = CheckEmpty(list1);
-        bool empty2 = CheckEmpty(list2);
-        //边界
-        /*某一条为空*/
-        if(empty1==false && empty2==true){
-        }
-        if(empty1==true && empty2==false){
-        }
-        /*两条都是空的*/
-        if(empty1==false && empty2==false){
-        }
-        /*两条都不是空的*/
-        if(empty1 == true && empty2 == true){
-        }
-
-        return  mergeTwoLists;
-
-        
-        
-    }
-};
 
 int main(){ 
     function_3();
