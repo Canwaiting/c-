@@ -30,7 +30,11 @@ void function_4(){
 
 
 int main(){ 
-    function_3();
+    //function_3(); 
+    string str;
+    int a = 3-4;
+    a>0 ? str = "plus" :str = "minus";
+    cout<<str<<endl;
     return 0;
 }
 
