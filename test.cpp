@@ -74,18 +74,14 @@ int main(){
 
 class Solution {
 public:
-    void inorder(TreeNode* root, vector<int>& res) {
-        if (!root) {
-            return;
-        }
-        inorder(root->left, res);
-        res.push_back(root->val);
-        inorder(root->right, res);
+    bool check(TreeNode *p, TreeNode *q) {
+        if (!p && !q) return true;
+        if (!p || !q) return false;
+        return p->val == q->val && check(p->left, q->right) && check(p->right, q->left);
     }
-    vector<int> inorderTraversal(TreeNode* root) {
-        vector<int> res;
-        inorder(root, res);
-        return res;
+
+    bool isSymmetric(TreeNode* root) {
+        return check(root, root);
     }
 };
 
