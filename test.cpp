@@ -29,14 +29,64 @@ void function_4(){
 }
 
 
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+ListNode* reverseList(ListNode* head) { 
+
+        ListNode * ans;
+        if(!head){
+            return head; 
+        }
+        stack<int> stack;
+        /*loop*/
+        while(head){ 
+            stack.push(head->val);
+            head = head->next; 
+        }
+
+        for(!stack.empty()){
+            cout<<" "<<stack.top();
+            stack.pop();
+        }
+
+        while(!stack.empty()&&head){
+            ans->val = stack.top();
+            stack.pop();
+            ans = ans->next; 
+        } 
+
+        return ans;
+
+    }
+};
+
 int main(){ 
-    //function_3(); 
-    string str;
-    int a = 3-4;
-    a>0 ? str = "plus" :str = "minus";
-    cout<<str<<endl;
     return 0;
 }
 
+
+class Solution {
+public:
+    void inorder(TreeNode* root, vector<int>& res) {
+        if (!root) {
+            return;
+        }
+        inorder(root->left, res);
+        res.push_back(root->val);
+        inorder(root->right, res);
+    }
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> res;
+        inorder(root, res);
+        return res;
+    }
+};
 
 
