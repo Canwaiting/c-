@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <iterator>
+#include <vector>
 #include <string.h>
 #include <netinet/in.h> 
 
@@ -38,102 +39,24 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-ListNode* reverseList(ListNode* head) { 
-
-        ListNode * ans;
-        if(!head){
-            return head; 
-        }
-        stack<int> stack;
-        /*loop*/
-        while(head){ 
-            stack.push(head->val);
-            head = head->next; 
-        }
-
-        for(!stack.empty()){
-            cout<<" "<<stack.top();
-            stack.pop();
-        }
-
-        while(!stack.empty()&&head){
-            ans->val = stack.top();
-            stack.pop();
-            ans = ans->next; 
-        } 
-
-        return ans;
-
-    }
-};
 
 int main(){ 
+    unordered_map<int,int> map;
+    map[1]=1;
+    map[2]=1;
+    map[1]=1;
+    map[1]=1;
+    map[1]=1;
+    for(auto& a:map){
+        cout<<a.first<<" "<<a.second<<endl;
+    }
     return 0;
 }
 
 
 
-class Solution {
-public:
-    TreeNode* invertTree(TreeNode* root) {
-        if (root == nullptr) {
-            return nullptr;
-        }
-        TreeNode* left = invertTree(root->left);
-        TreeNode* right = invertTree(root->right);
-        root->left = right;
-        root->right = left;
-        return root;
-    } 
-};
 
 
-class Solution {
-public:
-    bool isValid(string s) {
-        int n = s.size();
-        if (n % 2 == 1) {
-            return false;
-        }
-
-        unordered_map<char, char> pairs = {
-            {')', '('},
-            {']', '['},
-            {'}', '{'}
-        };
-        stack<char> stk;
-        for (char ch: s) {
-            if (pairs.count(ch)) {
-                if (stk.empty() || stk.top() != pairs[ch]) {
-                    return false;
-                }
-                stk.pop();
-            }
-            else {
-                stk.push(ch);
-            }
-        }
-        return stk.empty();
-    }
-};
-
-
-class Solution {
-public:
-    bool isPalindrome(ListNode* head) {
-        vector<int> vals;
-        while (head != nullptr) {
-            vals.emplace_back(head->val);
-            head = head->next;
-        }
-        for (int i = 0, j = (int)vals.size() - 1; i < j; ++i, --j) {
-            if (vals[i] != vals[j]) {
-                return false;
-            }
-        }
-        return true;
-    }
-};
 
 class Solution {
 public:
