@@ -43,30 +43,3 @@ struct ListNode {
 int main(){ 
     return 0;
 }
-
-class Solution {
-public:
-    vector<vector<int>> levelOrder(TreeNode* root) {
-        vector <vector <int>> ret;
-        if (!root) {
-            return ret;
-        }
-
-        queue <treenode*> q;
-        q.push(root);
-        while (!q.empty()) {
-            int currentlevelsize = q.size();
-            ret.push_back(vector <int> ()); /*todo*/
-            for (int i = 1; i <= currentlevelsize; ++i) {
-                auto node = q.front(); q.pop();
-                ret.back().push_back(node->val);
-                if (node->left) q.push(node->left);
-                if (node->right) q.push(node->right);
-            }
-        }
-        
-        return ret;
-    }
-};
-
-
