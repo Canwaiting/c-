@@ -41,15 +41,6 @@ struct ListNode {
 
 
 int main(){ 
-    unordered_map<int,int> map;
-    map[1]=1;
-    map[2]=1;
-    map[1]=1;
-    map[1]=1;
-    map[1]=1;
-    for(auto& a:map){
-        cout<<a.first<<" "<<a.second<<endl;
-    }
     return 0;
 }
 
@@ -61,12 +52,12 @@ public:
             return ret;
         }
 
-        queue <TreeNode*> q;
+        queue <treenode*> q;
         q.push(root);
         while (!q.empty()) {
-            int currentLevelSize = q.size();
-            ret.push_back(vector <int> ());
-            for (int i = 1; i <= currentLevelSize; ++i) {
+            int currentlevelsize = q.size();
+            ret.push_back(vector <int> ()); /*todo*/
+            for (int i = 1; i <= currentlevelsize; ++i) {
                 auto node = q.front(); q.pop();
                 ret.back().push_back(node->val);
                 if (node->left) q.push(node->left);
