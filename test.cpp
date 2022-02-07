@@ -41,22 +41,16 @@ struct ListNode {
 
 
 int main(){ 
+	int a = 1;
+	cout<<"a^0:"<<a<<endl;
+	a = a<<1;
+	cout<<"a^1:"<<a<<endl;
+	a = a<<1;
+	cout<<"a^2:"<<a<<endl;
+	a = a<<1;
+	cout<<"a^3:"<<a<<endl;
     return 0;
 }
 
-class Solution {
-    public:
-	int majorityElement(vector<int>& nums) {
-		unordered_map<int, int> counts;
-		int majority = 0, cnt = 0;
-		for (int num: nums) {
-			++counts[num];
-			if (counts[num] > cnt) {
-				majority = num;
-				cnt = counts[num];
-			}
-		}
-		return majority;
-	}
-};
+
 
