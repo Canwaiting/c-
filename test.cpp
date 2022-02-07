@@ -54,23 +54,20 @@ int main(){
 }
 
 class Solution {
-    int ans;
-    int depth(TreeNode* root){
-        if (root == NULL) return 0;
-        int L = depth(root->left);
-        int R = depth(root->right);
-        ans = max(ans, L + R + 1);
-        return max(L, R) + 1;
-    }
 public:
-    int diameterOfBinaryTree(TreeNode* root) {
-        ans = 1;
-        depth(root);
-        return ans - 1;
+    TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) {
+        if (t1 == nullptr) {
+            return t2;
+        }
+        if (t2 == nullptr) {
+            return t1;
+        }
+        auto merged = new TreeNode(t1->val + t2->val);
+        merged->left = mergeTrees(t1->left, t2->left);
+        merged->right = mergeTrees(t1->right, t2->right);
+        return merged;
     }
 };
-
-
 
 
 
