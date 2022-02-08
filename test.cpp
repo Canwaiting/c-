@@ -17,7 +17,6 @@ void function_3(){
     vector<string> strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
     
 
-    //cout<<"the size:"<<strs.size()<<endl;
     cout<<strs[0]<<endl;
     cout<<v.back()<<endl;
     cout<<"strs"<<!strs.size()<<endl;
