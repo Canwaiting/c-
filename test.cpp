@@ -54,7 +54,10 @@ struct ListNode {
 
 
 int main(){ 
-	function_5();
+	//function_5();
+	char a = 'a';
+	char b = a+10;
+	cout<<b<<endl;
     return 0;
 }
 
