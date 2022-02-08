@@ -35,7 +35,8 @@ void function_5(){
 		return u[0] > v[0] || (u[0] == v[0] && u[1] < v[1]);
 	});
 
-	for(const vector<int>& person:people){
+	//for(const vector<int>& person:people){
+	for(auto& person:people){
 		cout<<person[0]<<","<<person[1]<<endl;
 	}
 
