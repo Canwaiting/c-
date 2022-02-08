@@ -28,6 +28,18 @@ void function_4(){
 
 }
 
+void function_5(){
+    vector<vector<int>>  people = {{7,0},{4,4},{7,1},{5,0},{6,1},{5,2}};
+	sort(people.begin(), people.end(), [](const vector<int>& u, const vector<int>& v) {
+		//return u[0] < v[0] || (u[0] == v[0] && u[1] > v[1]);
+		return u[0] > v[0] || (u[0] == v[0] && u[1] < v[1]);
+	});
+
+	for(const vector<int>& person:people){
+		cout<<person[0]<<","<<person[1]<<endl;
+	}
+
+}
 
 
 struct ListNode {
@@ -39,15 +51,9 @@ struct ListNode {
 };
 
 
+
 int main(){ 
-	int a = 1;
-	cout<<"a^0:"<<a<<endl;
-	a = a<<1;
-	cout<<"a^1:"<<a<<endl;
-	a = a<<1;
-	cout<<"a^2:"<<a<<endl;
-	a = a<<1;
-	cout<<"a^3:"<<a<<endl;
+	function_5();
     return 0;
 }
 
