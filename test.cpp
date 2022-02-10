@@ -62,8 +62,10 @@ struct ListNode {
 
 
 int main(){ 
-	//function_5();
-	function_6(0);
+	string str ="hello";
+	cout<<str<<endl;
+	str.push_back(" world");
+	cout<<str<<endl;
     return 0;
 }
 
