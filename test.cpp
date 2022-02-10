@@ -42,6 +42,14 @@ void function_5(){
 
 }
 
+void function_6(int num){
+	if(num==11){
+		return;
+	}
+	cout<<num<<" "<<endl;
+	function_6(num+1);
+}
+
 
 struct ListNode {
     int val;
@@ -55,9 +63,7 @@ struct ListNode {
 
 int main(){ 
 	//function_5();
-	char a = 'a';
-	char b = a+10;
-	cout<<b<<endl;
+	function_6(0);
     return 0;
 }
 
