@@ -62,10 +62,16 @@ struct ListNode {
 
 
 int main(){ 
-	string str ="hello";
-	cout<<str<<endl;
-	str.push_back(" world");
-	cout<<str<<endl;
+	char buf[20];
+	//buf[1] = 0;
+	buf[1] = 1;
+	for(int i=0;i<20;i++){
+		buf[i] = '2'; 
+		cout<<buf[i]<<endl;
+	}
+
+
+	//cout<<"start:"<<buf[1]<<":end"<<endl;
     return 0;
 }
 
