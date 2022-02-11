@@ -6,7 +6,7 @@
 #include <vector>
 #include <string.h>
 #include <netinet/in.h> 
-
+#include <algorithm>
 using namespace std;
 
 
@@ -60,15 +60,16 @@ struct ListNode {
 };
 
 
+bool comp(int a,int b){
+	return (a<b);
+}
+
 
 int main(){ 
-	char buf[20];
-	//buf[1] = 0;
-	buf[1] = 1;
-	for(int i=0;i<20;i++){
-		buf[i] = '2'; 
-		cout<<buf[i]<<endl;
-	}
+	int i = 1;
+	int j = 3;
+	int minnumber = min(i,j);
+	cout<<minnumber<<endl;
     return 0;
 }
 
