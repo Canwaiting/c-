@@ -69,9 +69,6 @@ int main(){
 		buf[i] = '2'; 
 		cout<<buf[i]<<endl;
 	}
-
-
-	//cout<<"start:"<<buf[1]<<":end"<<endl;
     return 0;
 }
 
