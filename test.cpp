@@ -66,10 +66,6 @@ bool comp(int a,int b){
 
 
 int main(){ 
-	int i = 1;
-	int j = 3;
-	int minnumber = min(i,j);
-	cout<<minnumber<<endl;
     return 0;
 }
 
