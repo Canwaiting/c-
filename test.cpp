@@ -68,9 +68,11 @@ bool comp(int a,int b){
 int main(){ 
     vector<int> dp(10);
     for(int i=0;i<dp.size();++i){
-        cout<<dp[i]<<" ";
+        //cout<<dp[i]<<" ";
     }
-    cout<<"nobody know what is that mean"<<endl;
+    stack<int> stk;
+    cout<<stk.top()<<endl;
+    //cout<<"nobody know what is that mean"<<endl;
     cout<<endl;
 
 
