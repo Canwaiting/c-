@@ -66,6 +66,13 @@ bool comp(int a,int b){
 
 
 int main(){ 
+    vector<int> dp(10);
+    for(int i=0;i<dp.size();++i){
+        cout<<dp[i]<<" ";
+    }
+    cout<<endl;
+
+
     return 0;
 }
 
