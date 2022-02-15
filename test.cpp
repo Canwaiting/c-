@@ -66,8 +66,12 @@ bool comp(int a,int b){
 
 
 int main(){ 
-    int a = (2)2;
-    cout<<a<<endl; 
+    int A = 'A' - 'A';
+    int B = 'B' - 'A';
+    cout<<A<<endl;
+    cout<<B<<endl;
+
+
     return 0;
 }
 
