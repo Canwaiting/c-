@@ -66,13 +66,19 @@ bool comp(int a,int b){
 
 
 int main(){ 
-    vector<int> dp(10);
-    for(int i=0;i<dp.size();++i){
-        //cout<<dp[i]<<" ";
-    }
-    stack<int> stk;
-    cout<<stk.top()<<endl;
-    cout<<endl;
+    string s = "hello";
+    int a = s.size();
+    //vector<int> dp(10);
+    //for(int i=0;i<dp.size();++i){
+    //    //cout<<dp[i]<<" ";
+    //}
+    //stack<int> stk;
+    //cout<<stk.top()<<endl;
+    //cout<<endl;
+    cout<<a<<endl;
+    vector<bool> dp (a);
+    cout<<dp[0]<<endl;
+    cout<<s[0]<<endl;
 
 
     return 0;
