@@ -72,7 +72,6 @@ int main(){
     }
     stack<int> stk;
     cout<<stk.top()<<endl;
-    //cout<<"nobody know what is that mean"<<endl;
     cout<<endl;
 
 
