@@ -64,9 +64,18 @@ bool comp(int a,int b){
 	return (a<b);
 }
 
+bool testsort(){
+    vector<int> vec = {1,2,3,23,2,432,52,5,1};
+    sort(vec.begin(),vec.end());
+    for(auto x : vec){
+        cout<<x<<" ";
+    }
+    cout<<endl;
+}
+
 
 int main(){ 
-    cout<<"hello world"<<endl;
+    testsort();
     return 0;
 }
 
