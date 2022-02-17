@@ -66,6 +66,7 @@ bool comp(int a,int b){
 
 
 int main(){ 
+    cout<<"hello world"<<endl;
     return 0;
 }
 
