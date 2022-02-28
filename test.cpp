@@ -75,8 +75,11 @@ bool testsort(){
 
 
 int main(){ 
-    testsort();
-    cout<<"hello world"<<endl;
+    testsort(); 
+    char* s1 = "post:hello";
+    char* s2 = "post";
+    int a = strcasecmp(s1,s2);
+    cout<<a<<endl;
     return 0;
 }
 
