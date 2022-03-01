@@ -83,13 +83,15 @@ struct Info {
 
 struct alignas(2) Info2 {
   uint8_t a;
-  uint8_t c;
   uint16_t b;
 };
 
 int main(){ 
-    std::cout << sizeof(Info2) << std::endl;   // 8  4 + 4
-    std::cout << alignof(Info2) << std::endl;  // 4
+    //std::cout << sizeof(Info2) << std::endl;   // 8  4 + 4
+    //std::cout << alignof(Info2) << std::endl;  // 4
+    char *pc = 0;
+    char& rc = *pc;
+    cout<<rc<<endl;
 
     return 0;
 }
