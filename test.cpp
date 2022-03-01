@@ -73,7 +73,6 @@ bool testsort(){
     cout<<endl;
 }
 
-
 int main(){ 
     string s1 = "hello";
     cout<<s1[0]<<endl;
