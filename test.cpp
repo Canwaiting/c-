@@ -81,16 +81,13 @@ struct Info {
 };
 
 
-struct alignas(4) Info2 {
-  uint16_t a;
+struct alignas(2) Info2 {
+  uint8_t a;
+  uint8_t c;
   uint16_t b;
-  uint16_t c;
 };
 
 int main(){ 
-    std::cout << sizeof(Info) << std::endl;   // 6  2 + 2 + 2
-    std::cout << alignof(Info) << std::endl;  // 2
-    cout<<"-----------"<<endl;
     std::cout << sizeof(Info2) << std::endl;   // 8  4 + 4
     std::cout << alignof(Info2) << std::endl;  // 4
 
