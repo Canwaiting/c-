@@ -87,11 +87,11 @@ struct alignas(2) Info2 {
 };
 
 int main(){ 
-    //char *pc = 0;
-    //char& rc = *pc;
-    //cout<<rc<<endl;
-    cout<<"hello world"<<endl;
-
+    int a = 2;
+    int b = 1 | 0;
+    cout<<b<<endl;
+    
+    cout<<a<<endl; //4
     return 0;
 }
 
