@@ -87,8 +87,6 @@ struct alignas(2) Info2 {
 };
 
 int main(){ 
-    //std::cout << sizeof(Info2) << std::endl;   // 8  4 + 4
-    //std::cout << alignof(Info2) << std::endl;  // 4
     char *pc = 0;
     char& rc = *pc;
     cout<<rc<<endl;
