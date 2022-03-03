@@ -87,8 +87,12 @@ struct alignas(2) Info2 {
 };
 
 int main(){ 
-    int a = 21;
-    cout<<a[1]<<endl; 
+    string s = "hello"; 
+    for(auto& ch : s){
+        cout<<ch;
+    }
+    cout<<endl;
+    cout<<s.size()<<endl;
     return 0;
 }
 
