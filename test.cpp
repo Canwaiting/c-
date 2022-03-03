@@ -87,11 +87,8 @@ struct alignas(2) Info2 {
 };
 
 int main(){ 
-    int a = 2;
-    int b = 1 | 0;
-    cout<<b<<endl;
-    
-    cout<<a<<endl; //4
+    int a = 21;
+    cout<<a[1]<<endl; 
     return 0;
 }
 
