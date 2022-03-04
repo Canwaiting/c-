@@ -86,9 +86,36 @@ struct alignas(2) Info2 {
   uint16_t b;
 };
 
+
+void http_test(){
+    char text[] = "GET /xxx.jpg HTTP/1.1";
+    char* m_url = strpbrk(text,"\t");
+    cout<<"m_url"<<m_url<<endl;
+    cout<<"m_url"<<*m_url<<endl;
+    //cout<<"*m_url"<<*m_url<<endl;
+}
+
 int main(){ 
-    char* str = "hello world";
-    cout<<str<<endl; 
+    http_test(); 
+    cout<<endl;
+    //char ch1[] = "helloworldmoney";
+    //char ch2[] = "ole";
+    //char cmp1[] ="POST\0 / HTTP1.1"; 
+    //char cmp[] ="POST / HTTP1.1"; 
+    //char* r = strpbrk(ch1,ch2); 
+    //cout<<"r:"<<r<<endl;
+    //r += 4;
+    //cout<<"r++:"<<r<<endl;
+    //cout<<"*r:"<<*r<<endl;
+   // cout<<"ch1  "<<ch1<<endl;
+   // cout<<"ch2  "<<ch2<<endl;
+   // *r++ = '1';
+   // cout<<"ch1  "<<ch1<<endl;
+   // cout<<"ch2  "<<ch2<<endl;
+   // cout<<strcasecmp(cmp1,"post")<<endl;
+    //cout<<"*r:"<<*r<<endl;
+
+
     //testsort();
     return 0;
 }
