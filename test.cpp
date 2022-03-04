@@ -87,12 +87,15 @@ struct alignas(2) Info2 {
 };
 
 int main(){ 
-    string s = "hello"; 
-    for(auto& ch : s){
-        cout<<ch;
-    }
-    cout<<endl;
-    cout<<s.size()<<endl;
+
+    int a = 1;
+    stringstream ss;
+    string str="hello";
+    ss<<a;
+    ss>>str;
+    cout<<str<<endl;
+
+    //testsort();
     return 0;
 }
 
