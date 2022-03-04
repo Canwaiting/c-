@@ -87,14 +87,8 @@ struct alignas(2) Info2 {
 };
 
 int main(){ 
-
-    int a = 1;
-    stringstream ss;
-    string str="hello";
-    ss<<a;
-    ss>>str;
-    cout<<str<<endl;
-
+    char* str = "hello world";
+    cout<<str<<endl; 
     //testsort();
     return 0;
 }
