@@ -96,10 +96,10 @@ void http_test(){
 }
 
 int main(){ 
-    http_test(); 
-    cout<<endl;
-    //char ch1[] = "helloworldmoney";
-    //char ch2[] = "ole";
+    //http_test(); 
+    //cout<<endl;
+    char ch1[] = "helloworldmoney";
+    //char ch2[] = "ow";
     //char cmp1[] ="POST\0 / HTTP1.1"; 
     //char cmp[] ="POST / HTTP1.1"; 
     //char* r = strpbrk(ch1,ch2); 
@@ -114,6 +114,12 @@ int main(){
    // cout<<"ch2  "<<ch2<<endl;
    // cout<<strcasecmp(cmp1,"post")<<endl;
     //cout<<"*r:"<<*r<<endl;
+    //m_url += strspn(str, " \t");
+
+    char str1[] = "ABCDEFG019874";
+    char str2[] = "ABCD";
+    int len = strspn(str1,str2);
+    cout<<len <<endl;
 
 
     //testsort();
