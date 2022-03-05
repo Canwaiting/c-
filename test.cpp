@@ -96,33 +96,12 @@ void http_test(){
 }
 
 int main(){ 
-    //http_test(); 
-    //cout<<endl;
-    char ch1[] = "helloworldmoney";
-    //int ans = strncasecmp(ch1,"hello",5);
-    int ans = strncasecmp(ch1,"llo",3);
-    cout<<ans<<endl;
-    //char ch2[] = "ow";
-    //char cmp1[] ="POST\0 / HTTP1.1"; 
-    //char cmp[] ="POST / HTTP1.1"; 
-    //char* r = strpbrk(ch1,ch2); 
-    //cout<<"r:"<<r<<endl;
-    //r += 4;
-    //cout<<"r++:"<<r<<endl;
-    //cout<<"*r:"<<*r<<endl;
-   // cout<<"ch1  "<<ch1<<endl;
-   // cout<<"ch2  "<<ch2<<endl;
-   // *r++ = '1';
-   // cout<<"ch1  "<<ch1<<endl;
-   // cout<<"ch2  "<<ch2<<endl;
-   // cout<<strcasecmp(cmp1,"post")<<endl;
-    //cout<<"*r:"<<*r<<endl;
-    //m_url += strspn(str, " \t");
-
-    //char str1[] = "ABCDEFG019874";
-    //char str2[] = "ABCD";
-    //int len = strspn(str1,str2);
-    //cout<<len <<endl;
+    char ch1[] = "hello";
+    char ch2[] = "/22";
+    //strcat(ch1,ch2+2);
+    cout<<ch1<<endl;
+    strcpy(ch1,ch2);
+    cout<<ch1<<endl;
 
 
 
