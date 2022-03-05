@@ -99,6 +99,9 @@ int main(){
     //http_test(); 
     //cout<<endl;
     char ch1[] = "helloworldmoney";
+    //int ans = strncasecmp(ch1,"hello",5);
+    int ans = strncasecmp(ch1,"llo",3);
+    cout<<ans<<endl;
     //char ch2[] = "ow";
     //char cmp1[] ="POST\0 / HTTP1.1"; 
     //char cmp[] ="POST / HTTP1.1"; 
@@ -116,10 +119,11 @@ int main(){
     //cout<<"*r:"<<*r<<endl;
     //m_url += strspn(str, " \t");
 
-    char str1[] = "ABCDEFG019874";
-    char str2[] = "ABCD";
-    int len = strspn(str1,str2);
-    cout<<len <<endl;
+    //char str1[] = "ABCDEFG019874";
+    //char str2[] = "ABCD";
+    //int len = strspn(str1,str2);
+    //cout<<len <<endl;
+
 
 
     //testsort();
