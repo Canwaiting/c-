@@ -103,6 +103,9 @@ int test_while(){
 
 
 int main(){ 
+    int a = true;
+    cout<<a<<endl;
+
     //vector<int,int> test = {{1,1}};
     //cout<<test[0]<<endl;
     //testsort();
