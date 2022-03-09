@@ -103,12 +103,8 @@ int test_while(){
 
 
 int main(){ 
-    int a = 0;
-    while((a=test_while())==0)
-    {
-        cout<<"第一次不运行函数"<<endl;
-
-    } 
+    //vector<int,int> test = {{1,1}};
+    //cout<<test[0]<<endl;
     //testsort();
     return 0;
 }
