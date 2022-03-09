@@ -95,16 +95,20 @@ void http_test(){
     //cout<<"*m_url"<<*m_url<<endl;
 }
 
+
+int test_while(){
+    cout<<"function running"<<endl;
+    return 1;
+}
+
+
 int main(){ 
-    char ch1[] = "hello";
-    char ch2[] = "/22";
-    //strcat(ch1,ch2+2);
-    cout<<ch1<<endl;
-    strcpy(ch1,ch2);
-    cout<<ch1<<endl;
+    int a = 0;
+    while((a=test_while())==0)
+    {
+        cout<<"第一次不运行函数"<<endl;
 
-
-
+    } 
     //testsort();
     return 0;
 }
