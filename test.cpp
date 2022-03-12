@@ -93,8 +93,7 @@ void http_test(){
     cout<<"m_url"<<m_url<<endl;
     cout<<"m_url"<<*m_url<<endl;
     //cout<<"*m_url"<<*m_url<<endl;
-}
-
+} 
 
 int test_while(){
     cout<<"function running"<<endl;
