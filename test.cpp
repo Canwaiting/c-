@@ -102,21 +102,9 @@ int test_while(){
 
 
 int main(){ 
-    int a = 1;
-    cout<<"begin"<<endl;
-    while(a<=10){
-        if(a==5){
-            a++;
-            continue;
-        }
-        cout<<a<<endl;
-        a++; 
-    }
-    cout<<"end"<<endl;
-
-    //vector<int,int> test = {{1,1}};
-    //cout<<test[0]<<endl;
-    //testsort();
+    int a,b=3;
+    cout<<a<<endl;
+    cout<<b<<endl;
     return 0;
 }
 
