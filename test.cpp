@@ -100,11 +100,13 @@ int test_while(){
     return 1;
 }
 
-
 int main(){ 
-    int a,b=3;
-    cout<<a<<endl;
-    cout<<b<<endl;
+    vector<int> nums = {1,4,2,5,3};
+    for(int num : nums)
+    {
+        cout<<num<<" ";
+    }
+    cout<<endl;
     return 0;
 }
 
