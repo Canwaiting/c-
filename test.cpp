@@ -100,8 +100,76 @@ int test_while(){
     return 1;
 }
 
+void myswap(vector<int> &nums,int i,int j) 
+{
+    //nums[i] = nums[i] ^ nums[j];
+    //nums[j] = nums[i] ^ nums[j];
+    //nums[i] = nums[i] ^ nums[j];
+    int temp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+    cout<<i<<"和"<<j<<"调换: ";
+    for(int num : nums)
+    {
+        cout<<num<<" ";
+    }
+    cout<<endl;
+}
+
+
+void selectSort(vector<int>& nums)
+{
+    int count = 0;
+    int n = nums.size();
+    //if(n<2 || nums == nullptr){
+    //    return ;
+    //}
+
+    for(int i = 0;i<n-1;i++){
+        int minIndex = i;
+        for(int j = i+1;j<n;j++){
+            minIndex = nums[j] < nums[minIndex] ? j : minIndex;
+            count++;
+        }
+        myswap(nums,i,minIndex); 
+    }
+    cout<<"比较了:"<<count<<"次"<<endl;
+
+
+}
+
+void bubbleSort(vector<int>& nums)
+{
+    int n = nums.size();
+    int count = 0;
+
+    for(int i = 0;i<n-1;i++){
+        for(int j = i+1;j<n;j++){
+            if(nums[i]>nums[j]){
+                myswap(nums,i,j);
+            }
+            count++;
+        }
+    }
+    cout<<"比较了:"<<count<<"次"<<endl;
+}
+
 int main(){ 
     vector<int> nums = {1,4,2,5,3};
+    cout<<"before: ";
+    for(int num : nums)
+    {
+        cout<<num<<" ";
+    }
+    cout<<endl;
+    cout<<endl;
+
+    //sort(nums.begin(),nums.end());
+    //myswap(nums,0,1);
+    selectSort(nums);
+    //bubbleSort(nums);
+    cout<<endl;
+    cout<<"after:  ";
     for(int num : nums)
     {
         cout<<num<<" ";
