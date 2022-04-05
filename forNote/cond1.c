@@ -26,6 +26,7 @@ main()
    exit(0);
 }
 
+// 线程1调用
 void *functionCount1()
 {
    for(;;)
