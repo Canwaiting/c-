@@ -4,6 +4,7 @@
 #include <pthread.h>
 using namespace std;
 
+pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER; //创建锁
 void *add_function( void *ptr ); //调用函数
 volatile int cnt = 0; //全局变量
 main()
@@ -23,7 +24,9 @@ main()
 
 void *add_function( void *ptr )
 {
+    pthread_mutex_lock(&mutex1);
     for(int i = 0;i<10000;i++)
         cnt++;
+    pthread_mutex_unlock(&mutex1);
     return NULL;
 }
